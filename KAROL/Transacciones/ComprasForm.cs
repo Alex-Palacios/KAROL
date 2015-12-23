@@ -41,7 +41,7 @@ namespace KAROL.Transacciones
         public ComprasForm()
         {
             InitializeComponent();
-            tblITEMS_CALZADO.InitColumnTable();
+            this.tblITEMS_CALZADO.InitColumnTable();
             dbKAROL = new DBKAROL();
             dbProveedor = new DBProveedor();
             dbCompra = new DBCompra();
@@ -346,7 +346,24 @@ namespace KAROL.Transacciones
             }
         }
 
+        public void AgregarItem(eCategoria categoria,string estilo,eCorridaCalzado curva, DataTable ITEMS,decimal monto){
+            foreach (DataRow row in ITEMS.Rows)
+                {
+                    int totalItem = 0;
+                    decimal montoItem = (decimal)0.00;
+                    totalItem = totalItem + row.Field<int>("T1") + row.Field<int>("T2") + row.Field<int>("T3") + row.Field<int>("T4") +
+                        row.Field<int>("T5") + row.Field<int>("T6") + row.Field<int>("T7") + row.Field<int>("T8") + row.Field<int>("T9") + row.Field<int>("T10") + row.Field<int>("T11") + row.Field<int>("T12") + row.Field<int>("T13");
+                    if (totalItem != 0)
+                    {
+                        montoItem = Decimal.Round(monto / totalItem,2,MidpointRounding.AwayFromZero);
+                    }
 
+                    COMPRA.ITEMS_COMPRA.Rows.Add("CODIGO X", categoria.ToString(), estilo, row.Field<string>("COLOR"), curva.ToString(), row.Field<int>("T1"), row.Field<int>("T2"), row.Field<int>("T3"), row.Field<int>("T4"), row.Field<int>("T5"),
+                        row.Field<int>("T6"), row.Field<int>("T7"), row.Field<int>("T8"), row.Field<int>("T9"), row.Field<int>("T10"), row.Field<int>("T11"), row.Field<int>("T12"), row.Field<int>("T13"),montoItem);
+                }
+        }
+
+        
 
 
 

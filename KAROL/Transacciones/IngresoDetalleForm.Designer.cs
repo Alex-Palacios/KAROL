@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IngresoDetalleForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -41,11 +42,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IngresoDetalleForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxCOMO = new System.Windows.Forms.ComboBox();
             this.tblDETALLE = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.cbxCORRIDA = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtMONTO = new System.Windows.Forms.TextBox();
+            this.lbTOTAL = new System.Windows.Forms.Label();
+            this.numCajas = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnLISTAR = new System.Windows.Forms.Button();
+            this.cbxESTILO = new DevComponents.DotNetBar.Controls.ComboTree();
+            this.COD_ITEM = new DevComponents.AdvTree.ColumnHeader();
+            this.MARCA = new DevComponents.AdvTree.ColumnHeader();
             this.COLOR = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,20 +74,6 @@
             this.T11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.T13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.cbxCORRIDA = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtMONTO = new System.Windows.Forms.TextBox();
-            this.lbTOTAL = new System.Windows.Forms.Label();
-            this.numCajas = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.btnLISTAR = new System.Windows.Forms.Button();
-            this.cbxESTILO = new DevComponents.DotNetBar.Controls.ComboTree();
-            this.columnHeader1 = new DevComponents.AdvTree.ColumnHeader();
-            this.columnHeader2 = new DevComponents.AdvTree.ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)(this.tblDETALLE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCajas)).BeginInit();
             this.SuspendLayout();
@@ -138,6 +138,151 @@
             this.tblDETALLE.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblITEMS_CellEndEdit);
             this.tblDETALLE.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.tblDETALLE_CellFormatting);
             this.tblDETALLE.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.tblDETALLE_CellValidating);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label4.Location = new System.Drawing.Point(228, 238);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 13);
+            this.label4.TabIndex = 101;
+            this.label4.Text = "UNIDADES";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label5.Location = new System.Drawing.Point(247, 259);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.TabIndex = 102;
+            this.label5.Text = "MONTO";
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
+            this.btnEliminar.Location = new System.Drawing.Point(575, 98);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(37, 25);
+            this.btnEliminar.TabIndex = 104;
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
+            this.btnAgregar.Location = new System.Drawing.Point(575, 67);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(37, 25);
+            this.btnAgregar.TabIndex = 103;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // cbxCORRIDA
+            // 
+            this.cbxCORRIDA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxCORRIDA.FormattingEnabled = true;
+            this.cbxCORRIDA.Location = new System.Drawing.Point(302, 20);
+            this.cbxCORRIDA.Name = "cbxCORRIDA";
+            this.cbxCORRIDA.Size = new System.Drawing.Size(40, 21);
+            this.cbxCORRIDA.TabIndex = 106;
+            this.cbxCORRIDA.SelectedIndexChanged += new System.EventHandler(this.cbxCORRIDA_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label6.Location = new System.Drawing.Point(233, 24);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.TabIndex = 105;
+            this.label6.Text = "CORRIDA";
+            // 
+            // txtMONTO
+            // 
+            this.txtMONTO.Location = new System.Drawing.Point(309, 255);
+            this.txtMONTO.Name = "txtMONTO";
+            this.txtMONTO.Size = new System.Drawing.Size(78, 20);
+            this.txtMONTO.TabIndex = 108;
+            this.txtMONTO.Leave += new System.EventHandler(this.txtMONTO_Leave);
+            // 
+            // lbTOTAL
+            // 
+            this.lbTOTAL.AutoSize = true;
+            this.lbTOTAL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTOTAL.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbTOTAL.Location = new System.Drawing.Point(306, 238);
+            this.lbTOTAL.Name = "lbTOTAL";
+            this.lbTOTAL.Size = new System.Drawing.Size(14, 13);
+            this.lbTOTAL.TabIndex = 109;
+            this.lbTOTAL.Text = "0";
+            // 
+            // numCajas
+            // 
+            this.numCajas.Location = new System.Drawing.Point(257, 210);
+            this.numCajas.Name = "numCajas";
+            this.numCajas.Size = new System.Drawing.Size(42, 20);
+            this.numCajas.TabIndex = 110;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label7.Location = new System.Drawing.Point(305, 213);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.TabIndex = 111;
+            this.label7.Text = "CAJAS";
+            // 
+            // btnLISTAR
+            // 
+            this.btnLISTAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLISTAR.Location = new System.Drawing.Point(494, 225);
+            this.btnLISTAR.Name = "btnLISTAR";
+            this.btnLISTAR.Size = new System.Drawing.Size(75, 39);
+            this.btnLISTAR.TabIndex = 112;
+            this.btnLISTAR.Text = "LISTAR";
+            this.btnLISTAR.UseVisualStyleBackColor = true;
+            this.btnLISTAR.Click += new System.EventHandler(this.btnLISTAR_Click);
+            // 
+            // cbxESTILO
+            // 
+            this.cbxESTILO.BackColor = System.Drawing.SystemColors.Window;
+            // 
+            // 
+            // 
+            this.cbxESTILO.BackgroundStyle.Class = "TextBoxBorder";
+            this.cbxESTILO.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cbxESTILO.ButtonDropDown.Visible = true;
+            this.cbxESTILO.Columns.Add(this.COD_ITEM);
+            this.cbxESTILO.Columns.Add(this.MARCA);
+            this.cbxESTILO.DropDownHeight = 300;
+            this.cbxESTILO.DropDownWidth = 200;
+            this.cbxESTILO.Location = new System.Drawing.Point(69, 20);
+            this.cbxESTILO.Name = "cbxESTILO";
+            this.cbxESTILO.SelectionBoxStyle = DevComponents.AdvTree.eSelectionStyle.FullRowSelect;
+            this.cbxESTILO.Size = new System.Drawing.Size(115, 23);
+            this.cbxESTILO.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbxESTILO.TabIndex = 113;
+            // 
+            // COD_ITEM
+            // 
+            this.COD_ITEM.DataFieldName = "COD_ITEM";
+            this.COD_ITEM.Name = "COD_ITEM";
+            this.COD_ITEM.Text = "ESTILO";
+            this.COD_ITEM.Width.Absolute = 150;
+            // 
+            // MARCA
+            // 
+            this.MARCA.DataFieldName = "MARCA";
+            this.MARCA.Name = "MARCA";
+            this.MARCA.Text = "MARCA";
+            this.MARCA.Width.Absolute = 150;
             // 
             // COLOR
             // 
@@ -277,148 +422,6 @@
             this.T13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.T13.Width = 30;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label4.Location = new System.Drawing.Point(228, 238);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 13);
-            this.label4.TabIndex = 101;
-            this.label4.Text = "UNIDADES";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label5.Location = new System.Drawing.Point(247, 259);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
-            this.label5.TabIndex = 102;
-            this.label5.Text = "MONTO";
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.Location = new System.Drawing.Point(575, 98);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(37, 25);
-            this.btnEliminar.TabIndex = 104;
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
-            this.btnAgregar.Location = new System.Drawing.Point(575, 67);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(37, 25);
-            this.btnAgregar.TabIndex = 103;
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // cbxCORRIDA
-            // 
-            this.cbxCORRIDA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxCORRIDA.FormattingEnabled = true;
-            this.cbxCORRIDA.Location = new System.Drawing.Point(302, 20);
-            this.cbxCORRIDA.Name = "cbxCORRIDA";
-            this.cbxCORRIDA.Size = new System.Drawing.Size(40, 21);
-            this.cbxCORRIDA.TabIndex = 106;
-            this.cbxCORRIDA.SelectedIndexChanged += new System.EventHandler(this.cbxCORRIDA_SelectedIndexChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label6.Location = new System.Drawing.Point(233, 24);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 13);
-            this.label6.TabIndex = 105;
-            this.label6.Text = "CORRIDA";
-            // 
-            // txtMONTO
-            // 
-            this.txtMONTO.Location = new System.Drawing.Point(309, 255);
-            this.txtMONTO.Name = "txtMONTO";
-            this.txtMONTO.Size = new System.Drawing.Size(78, 20);
-            this.txtMONTO.TabIndex = 108;
-            // 
-            // lbTOTAL
-            // 
-            this.lbTOTAL.AutoSize = true;
-            this.lbTOTAL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTOTAL.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lbTOTAL.Location = new System.Drawing.Point(306, 238);
-            this.lbTOTAL.Name = "lbTOTAL";
-            this.lbTOTAL.Size = new System.Drawing.Size(14, 13);
-            this.lbTOTAL.TabIndex = 109;
-            this.lbTOTAL.Text = "0";
-            // 
-            // numCajas
-            // 
-            this.numCajas.Location = new System.Drawing.Point(257, 210);
-            this.numCajas.Name = "numCajas";
-            this.numCajas.Size = new System.Drawing.Size(42, 20);
-            this.numCajas.TabIndex = 110;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label7.Location = new System.Drawing.Point(305, 213);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 13);
-            this.label7.TabIndex = 111;
-            this.label7.Text = "CAJAS";
-            // 
-            // btnLISTAR
-            // 
-            this.btnLISTAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLISTAR.Location = new System.Drawing.Point(494, 225);
-            this.btnLISTAR.Name = "btnLISTAR";
-            this.btnLISTAR.Size = new System.Drawing.Size(75, 39);
-            this.btnLISTAR.TabIndex = 112;
-            this.btnLISTAR.Text = "LISTAR";
-            this.btnLISTAR.UseVisualStyleBackColor = true;
-            this.btnLISTAR.Click += new System.EventHandler(this.btnLISTAR_Click);
-            // 
-            // cbxESTILO
-            // 
-            this.cbxESTILO.BackColor = System.Drawing.SystemColors.Window;
-            // 
-            // 
-            // 
-            this.cbxESTILO.BackgroundStyle.Class = "TextBoxBorder";
-            this.cbxESTILO.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.cbxESTILO.ButtonDropDown.Visible = true;
-            this.cbxESTILO.Columns.Add(this.columnHeader1);
-            this.cbxESTILO.Columns.Add(this.columnHeader2);
-            this.cbxESTILO.DropDownHeight = 300;
-            this.cbxESTILO.DropDownWidth = 200;
-            this.cbxESTILO.Location = new System.Drawing.Point(69, 20);
-            this.cbxESTILO.Name = "cbxESTILO";
-            this.cbxESTILO.SelectionBoxStyle = DevComponents.AdvTree.eSelectionStyle.FullRowSelect;
-            this.cbxESTILO.Size = new System.Drawing.Size(115, 23);
-            this.cbxESTILO.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbxESTILO.TabIndex = 113;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Name = "columnHeader1";
-            this.columnHeader1.Text = "Column";
-            this.columnHeader1.Width.Absolute = 150;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Name = "columnHeader2";
-            this.columnHeader2.Text = "Column";
-            this.columnHeader2.Width.Absolute = 150;
-            // 
             // IngresoDetalleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -471,8 +474,8 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnLISTAR;
         private DevComponents.DotNetBar.Controls.ComboTree cbxESTILO;
-        private DevComponents.AdvTree.ColumnHeader columnHeader1;
-        private DevComponents.AdvTree.ColumnHeader columnHeader2;
+        private DevComponents.AdvTree.ColumnHeader COD_ITEM;
+        private DevComponents.AdvTree.ColumnHeader MARCA;
         private System.Windows.Forms.DataGridViewTextBoxColumn COLOR;
         private System.Windows.Forms.DataGridViewTextBoxColumn T1;
         private System.Windows.Forms.DataGridViewTextBoxColumn T2;

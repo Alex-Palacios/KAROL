@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashScreen));
             this.statusLabel = new System.Windows.Forms.StatusStrip();
             this.progressText = new System.Windows.Forms.ToolStripStatusLabel();
             this.progreso = new System.Windows.Forms.ProgressBar();
@@ -127,6 +128,7 @@
             this.Controls.Add(this.statusLabel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SplashScreen";
             this.Opacity = 0.9D;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;

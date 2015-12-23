@@ -421,7 +421,7 @@
     <value>MENU_PRINCIPAL</value>
   </data>
   <data name="&gt;&gt;ribbonPanel4.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="grupoCatalogos.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -933,25 +933,25 @@
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAMMOAADDDgAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAA2lAGQdpSCaHYVRDS1FQS/9RUEv/YVRDS2lIJodtQBkEAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAADNTA4S00wIktRQDPrUUQ3/1FEN/9RRDf/UUQ3/1FEN/9RRDf/UUAz600wIks1M
-        DhIAAAAAAAAAAAAAAADKSQsSzEcJys5NDf/OTQ3/zUwN/81LDP/OTA3/zk0N/85NDf/OTQ3/zk0N/85N
-        Df/MRwnKykkLEgAAAAAAAAAAxUMHksdIDf/HSA3/x0gN/9FqP///////yU4V/8dIDf/HSA3/x0gN/8dI
-        Df/HSA3/x0gN/8VDB5IAAAAAvTwDQcBCCvrBRAz/wUQM/8FEDP/MZj7//////8JKFP/BRAz/wUQM/8FE
-        DP/BRAz/wUQM/8FEDP/AQgr6vTwDQbg6B6G6Pwz/uj8M/7o/DP+6Pwz/xmI+//////+8RRT/uj8M/7o/
-        DP+6Pwz/uj8M/7o/DP+6Pwz/uj8M/7g6B6GzPA/StDsL/7Q7C/+0Owv/tDsL/8FePf//////zHpc/8t1
-        Vf/FaUX/tDwO/7Q7C/+0Owv/tDsL/7Q7C/+zPA/SrjoQ/602C/+tNgv/rTYL/602C/+8Wj3//////+XA
-        uP/kv7b/8+Pd//Xl4f+2TCf/rTYL/602C/+tNgv/rjoQ/6g2D/+mMgr/pjIK/6YyCv+mMgr/tlc9////
-        //+pOBP/pjIK/6YxDP/t1c//2aia/6YyCv+mMgr/pjIK/6g2D/+iMQ7SoC4K/6AuCv+gLQr/oC0J/7JW
-        Pv//////pjsa/6EwDf+gLQn/16eb/+LAuf+gLQr/oC0J/6AtCv+iMQ7SlyMFnpkpCf+lQST/qEkt/61S
-        OP+9dWD//////7BYP/+tUzr/sVtD//Lk4f/SoZX/ojwf/6tNMv+gNxn/lyMFnpMiBSiSJAj3sWNP/7Jk
-        Uf+yZVH/wIFw///////16uj/9ern//37+v/p1M//tmxZ/7JkUP+yZVH/mjMZ95IkBygAAAAAiBgEkqRP
-        PP+3c2T/t3Nk/7l3aP/Ah3n/wId5/8CGef+6eWr/tnJi/7dzZP+3c2T/qltK/4wgDJIAAAAAAAAAAJIs
-        GRKLJBfKr2pe/72DeP+9g3j/vYN4/72DeP+9g3j/vYN4/72DeP+9g3j/r2ld/44rHcqqWUYSAAAAAAAA
-        AAAAAAAAs29kEoMeEZKdT0X3vYeA/8WWj//ElI3/xJSN/8WWj/+7hHz/m0pA94AYDJKzbWISAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAgRwRKHsXDo2KLiXSlUA0/5ZANf+JLCPSehQKjYAfEygAAAAAAAAAAAAA
-        AAAAAAAA8A8AAMADAACAAQAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAEAAIAB
-        AADAAwAA8A8AAA==
+        AAD//////fz///v7///9/f7////////////9/f//////////////////////////////////////////
+        //////////////////////////////79///+/v///////+zp9f/Nxef/6ubu/////v//////////////
+        //////////////////+/tOz/hnHX/9TK4v////7//////8O67f85HND/IgLN/3to0v////r//v7/////
+        ///////////////////19vr/PyfX/x4A1P81Fcv/zsTf//////9wZd//IADV/0Ql1P/p5PP///////7+
+        /v///////////////////////////5SW6P8nDdT/LgvY/1M4zP////P/iozo/yQJ1v9DJdD/7enu////
+        ///+/v7/////////////////////////////////mJzp/ykQ1v8mAdL/rpvZ/8nR7/8pGdf/MQ3Q/8/F
+        5v///////f3+//////////////////////////7/xbvr/9fO5P+cn+X/IwjY/0kpzv/k4ej/TkXe/yEA
+        0f+wouD///////z8/v//////////////////////4+T1/y4a0v8hAM7/qJfW/5ea4/8YANP/lIDW/1E+
+        2/8rBdH/19Hu///////7+v7///////////////////////7//f+YoOj/NCvb/yEA0P/Attr/c27g/zob
+        z/9nZ9n/LRvT/6SS1v////T///////z8///////////////////////////+/8HK7v9KR93/MhfO/3dj
+        0/8oCdX/monW/6i06f8fEdL/YELK/97W5P///////Pz//////v////////////79////////9/z7/5mc
+        6v88MNf/KQzW/zoXz//37un/t77x/yEO1v83Fcv/tKjW/////P/9/f////7+/////////////P3/////
+        ////////7fP5/42T5/8lEtb/X0TO////9v+aour/JhDX/ykHz/+cjdL////7//7+////////////////
+        ///+/v///Pz+////////////xMzy/19V2//c0+7//////3J44P8qDtj/KAXQ/6eY2P//////////////
+        ///////////////////+/v///f3//////////////v/////////x9fr/T1Ld/ygJ2P8zE8//29Xs////
+        ///////////////////////////////////9/f///f3////////8/P7//////9jg9P9RUt3/PijV/9bO
+        7f////////////////////////////////////////////////////////////39////////8PP5/+Tn
+        9f////7/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAA==
 </value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
@@ -965,6 +965,42 @@
   </data>
   <data name="&gt;&gt;styleForm.Type" xml:space="preserve">
     <value>DevComponents.DotNetBar.StyleManager, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;btnPagosProveedores.Name" xml:space="preserve">
+    <value>btnPagosProveedores</value>
+  </data>
+  <data name="&gt;&gt;btnPagosProveedores.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.ButtonItem, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;btnPagosClientes.Name" xml:space="preserve">
+    <value>btnPagosClientes</value>
+  </data>
+  <data name="&gt;&gt;btnPagosClientes.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.ButtonItem, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;btnMovEnvios.Name" xml:space="preserve">
+    <value>btnMovEnvios</value>
+  </data>
+  <data name="&gt;&gt;btnMovEnvios.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.ButtonItem, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;btnDevCompra.Name" xml:space="preserve">
+    <value>btnDevCompra</value>
+  </data>
+  <data name="&gt;&gt;btnDevCompra.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.ButtonItem, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;btnMovCompras.Name" xml:space="preserve">
+    <value>btnMovCompras</value>
+  </data>
+  <data name="&gt;&gt;btnMovCompras.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.ButtonItem, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;btnDevVenta.Name" xml:space="preserve">
+    <value>btnDevVenta</value>
+  </data>
+  <data name="&gt;&gt;btnDevVenta.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.ButtonItem, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
   </data>
   <data name="&gt;&gt;btnRptConsolidado.Name" xml:space="preserve">
     <value>btnRptConsolidado</value>
@@ -1096,42 +1132,6 @@
     <value>btnOperacionesRecibirInv</value>
   </data>
   <data name="&gt;&gt;btnOperacionesRecibirInv.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.ButtonItem, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;btnPagosProveedores.Name" xml:space="preserve">
-    <value>btnPagosProveedores</value>
-  </data>
-  <data name="&gt;&gt;btnPagosProveedores.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.ButtonItem, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;btnPagosClientes.Name" xml:space="preserve">
-    <value>btnPagosClientes</value>
-  </data>
-  <data name="&gt;&gt;btnPagosClientes.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.ButtonItem, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;btnMovEnvios.Name" xml:space="preserve">
-    <value>btnMovEnvios</value>
-  </data>
-  <data name="&gt;&gt;btnMovEnvios.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.ButtonItem, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;btnDevCompra.Name" xml:space="preserve">
-    <value>btnDevCompra</value>
-  </data>
-  <data name="&gt;&gt;btnDevCompra.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.ButtonItem, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;btnMovCompras.Name" xml:space="preserve">
-    <value>btnMovCompras</value>
-  </data>
-  <data name="&gt;&gt;btnMovCompras.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.ButtonItem, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;btnDevVenta.Name" xml:space="preserve">
-    <value>btnDevVenta</value>
-  </data>
-  <data name="&gt;&gt;btnDevVenta.Type" xml:space="preserve">
     <value>DevComponents.DotNetBar.ButtonItem, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
   </data>
   <data name="&gt;&gt;moduloCATALOGOS.Name" xml:space="preserve">

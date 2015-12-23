@@ -34,6 +34,9 @@
   <PropertyGroup>
     <ApplicationIcon>K.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>KAROL.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar.Design">
       <HintPath>..\..\..\Code Snippets\Personalizado\DotNetBar\DevComponents.DotNetBar.Design.dll</HintPath>

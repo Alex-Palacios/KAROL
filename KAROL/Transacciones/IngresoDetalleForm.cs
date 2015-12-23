@@ -131,10 +131,12 @@ namespace KAROL.Transacciones
 
         private void calcularTotales()
         {
-            int unidades = 0;
+            int unidades=0;
+
             foreach (DataRow row in ITEMS.Rows)
             {
-                unidades = unidades + row.Field<int>("T1") + row.Field<int>("T2") + row.Field<int>("T3") + row.Field<int>("T4") + row.Field<int>("T5") + row.Field<int>("T6") + row.Field<int>("T7") + row.Field<int>("T8") + row.Field<int>("T9") + row.Field<int>("T10") + row.Field<int>("T11") + row.Field<int>("T12") + row.Field<int>("T13");
+                unidades = unidades + row.Field<int>("T1") + row.Field<int>("T2") + row.Field<int>("T3") + row.Field<int>("T4") +
+                        row.Field<int>("T5") + row.Field<int>("T6") + row.Field<int>("T7") + row.Field<int>("T8") + row.Field<int>("T9") + row.Field<int>("T10") + row.Field<int>("T11") + row.Field<int>("T12") + row.Field<int>("T13");
             }
             lbTOTAL.Text = "" + unidades;
         }
@@ -155,29 +157,29 @@ namespace KAROL.Transacciones
 
 
 
+
+
+
         private void tblDETALLE_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            try
+            string columnName = tblDETALLE.Columns[e.ColumnIndex].Name;
+            switch (columnName)
             {
-                switch (e.ColumnIndex)
-                {
-                    case 0:
-                        e.Value = e.Value.ToString().ToUpper();
-                        break;
-                    default:
+                case "COLOR":
+                    e.Value = e.Value.ToString().ToUpper();
+                    break;
+                default:
+                    if (e.Value != DBNull.Value)
+                    {
                         int x = (int)e.Value;
                         if (x == 0)
                         {
-                            e.Value = "";
+                            e.Value = string.Empty;
                         }
-                        break;
-                }
+                    }
+                    break;
+            }
                 
-            }
-            catch (Exception ex)
-            {
-
-            }
         }
 
 
@@ -208,8 +210,8 @@ namespace KAROL.Transacciones
 
                         if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
                         {
-                            //tblDETALLE.Rows[e.RowIndex].ErrorText = "Cantidad Invalida";
-                            //System.Media.SystemSounds.Beep.Play();
+                            //tblDETALLE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = DBNull.Value;
+                            //ITEMS.Rows[e.RowIndex].SetField<int>(columnName, 0);
                             //e.Cancel = true;
                         }
                         else if (!Int32.TryParse(e.FormattedValue.ToString(), System.Globalization.NumberStyles.Currency, null, out valor))
@@ -242,9 +244,14 @@ namespace KAROL.Transacciones
                 switch (columnName)
                 {
                     case "COLOR":
-                       
+                        ITEMS.Rows[e.RowIndex].SetField<string>(columnName, tblDETALLE.Rows[e.RowIndex].Cells[e.ColumnIndex].FormattedValue.ToString());
                         break;
                     default:
+                        if (string.IsNullOrEmpty(tblDETALLE.Rows[e.RowIndex].Cells[e.ColumnIndex].FormattedValue.ToString()))
+                        {
+                            tblDETALLE.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = DBNull.Value;
+                            ITEMS.Rows[e.RowIndex].SetField<int>(columnName, 0);
+                        }
                         calcularTotales();
                         break;
                 }
@@ -399,13 +406,30 @@ namespace KAROL.Transacciones
         {
             if (validar())
             {
-
+                ComprasForm.Instance().AgregarItem(this.CATEGORIA, (string)cbxESTILO.SelectedValue, (eCorridaCalzado)cbxCORRIDA.SelectedItem, this.ITEMS, this.MONTO);
+                this.Close();
             }
         }
 
 
 
+        private void txtMONTO_Leave(object sender, EventArgs e)
+        {
+            MONTO = (decimal)0.00;
+            decimal valor;
+            if (Decimal.TryParse(txtMONTO.Text, System.Globalization.NumberStyles.Currency, null, out valor))
+            {
+                MONTO = Decimal.Round(valor, 2, MidpointRounding.AwayFromZero);
+            }
+            else
+            {
+                MessageBox.Show("FORMATO INVALIDO", "ERROR DE DATOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            txtMONTO.Text = MONTO.ToString("C2");
+        }
 
+
+        
 
     }
 }

@@ -32,6 +32,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HOME));
             this.styleForm = new DevComponents.DotNetBar.StyleManager(this.components);
             this.MENU_PRINCIPAL = new DevComponents.DotNetBar.RibbonControl();
+            this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
+            this.btnPagosProveedores = new DevComponents.DotNetBar.ButtonItem();
+            this.btnPagosClientes = new DevComponents.DotNetBar.ButtonItem();
+            this.grupoCajaChica = new DevComponents.DotNetBar.RibbonBar();
+            this.btnMovEnvios = new DevComponents.DotNetBar.ButtonItem();
+            this.btnDevCompra = new DevComponents.DotNetBar.ButtonItem();
+            this.grupoTransComerciales = new DevComponents.DotNetBar.RibbonBar();
+            this.btnMovCompras = new DevComponents.DotNetBar.ButtonItem();
+            this.btnDevVenta = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel4 = new DevComponents.DotNetBar.RibbonPanel();
             this.grupoReportesGerenciales = new DevComponents.DotNetBar.RibbonBar();
             this.btnRptConsolidado = new DevComponents.DotNetBar.ButtonItem();
@@ -69,16 +79,6 @@
             this.btnOperacionesCorteInvInicial = new DevComponents.DotNetBar.ButtonItem();
             this.btnOperacionesEnviarInv = new DevComponents.DotNetBar.ButtonItem();
             this.btnOperacionesRecibirInv = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
-            this.btnPagosProveedores = new DevComponents.DotNetBar.ButtonItem();
-            this.btnPagosClientes = new DevComponents.DotNetBar.ButtonItem();
-            this.grupoCajaChica = new DevComponents.DotNetBar.RibbonBar();
-            this.btnMovEnvios = new DevComponents.DotNetBar.ButtonItem();
-            this.btnDevCompra = new DevComponents.DotNetBar.ButtonItem();
-            this.grupoTransComerciales = new DevComponents.DotNetBar.RibbonBar();
-            this.btnMovCompras = new DevComponents.DotNetBar.ButtonItem();
-            this.btnDevVenta = new DevComponents.DotNetBar.ButtonItem();
             this.moduloCATALOGOS = new DevComponents.DotNetBar.RibbonTabItem();
             this.moduloMOVIMIENTOS = new DevComponents.DotNetBar.RibbonTabItem();
             this.moduloOPERACIONES = new DevComponents.DotNetBar.RibbonTabItem();
@@ -109,12 +109,12 @@
             this.paraleloToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonItem2 = new DevComponents.DotNetBar.ButtonItem();
             this.MENU_PRINCIPAL.SuspendLayout();
+            this.ribbonPanel2.SuspendLayout();
             this.ribbonPanel4.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
             this.ribbonPanel6.SuspendLayout();
             this.ribbonPanel7.SuspendLayout();
-            this.ribbonPanel2.SuspendLayout();
             this.STATUS_BAR.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -155,6 +155,192 @@
             this.menuVista});
             this.MENU_PRINCIPAL.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.MENU_PRINCIPAL.TabGroupHeight = 14;
+            // 
+            // ribbonPanel2
+            // 
+            resources.ApplyResources(this.ribbonPanel2, "ribbonPanel2");
+            this.ribbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonPanel2.Controls.Add(this.ribbonBar1);
+            this.ribbonPanel2.Controls.Add(this.grupoCajaChica);
+            this.ribbonPanel2.Controls.Add(this.grupoTransComerciales);
+            this.ribbonPanel2.Name = "ribbonPanel2";
+            // 
+            // 
+            // 
+            this.ribbonPanel2.Style.Class = "";
+            this.ribbonPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel2.StyleMouseDown.Class = "";
+            this.ribbonPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel2.StyleMouseOver.Class = "";
+            this.ribbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // ribbonBar1
+            // 
+            this.ribbonBar1.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar1.BackgroundMouseOverStyle.Class = "";
+            this.ribbonBar1.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar1.BackgroundStyle.Class = "";
+            this.ribbonBar1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar1.ContainerControlProcessDialogKey = true;
+            resources.ApplyResources(this.ribbonBar1, "ribbonBar1");
+            this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnPagosProveedores,
+            this.btnPagosClientes});
+            this.ribbonBar1.Name = "ribbonBar1";
+            this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            // 
+            // 
+            // 
+            this.ribbonBar1.TitleStyle.Class = "";
+            this.ribbonBar1.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar1.TitleStyleMouseOver.Class = "";
+            this.ribbonBar1.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // btnPagosProveedores
+            // 
+            this.btnPagosProveedores.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnPagosProveedores.Image = global::KAROL.Properties.Resources.pagotarjeta;
+            this.btnPagosProveedores.ImageFixedSize = new System.Drawing.Size(64, 55);
+            this.btnPagosProveedores.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
+            this.btnPagosProveedores.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnPagosProveedores.Name = "btnPagosProveedores";
+            this.btnPagosProveedores.SubItemsExpandWidth = 14;
+            resources.ApplyResources(this.btnPagosProveedores, "btnPagosProveedores");
+            // 
+            // btnPagosClientes
+            // 
+            this.btnPagosClientes.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnPagosClientes.Image = global::KAROL.Properties.Resources.cobros;
+            this.btnPagosClientes.ImageFixedSize = new System.Drawing.Size(64, 55);
+            this.btnPagosClientes.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
+            this.btnPagosClientes.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnPagosClientes.Name = "btnPagosClientes";
+            this.btnPagosClientes.SubItemsExpandWidth = 14;
+            resources.ApplyResources(this.btnPagosClientes, "btnPagosClientes");
+            // 
+            // grupoCajaChica
+            // 
+            this.grupoCajaChica.AutoOverflowEnabled = true;
+            this.grupoCajaChica.AutoSizeItems = false;
+            // 
+            // 
+            // 
+            this.grupoCajaChica.BackgroundMouseOverStyle.Class = "";
+            this.grupoCajaChica.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.grupoCajaChica.BackgroundStyle.Class = "";
+            this.grupoCajaChica.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.grupoCajaChica.ContainerControlProcessDialogKey = true;
+            resources.ApplyResources(this.grupoCajaChica, "grupoCajaChica");
+            this.grupoCajaChica.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnMovEnvios,
+            this.btnDevCompra});
+            this.grupoCajaChica.Name = "grupoCajaChica";
+            this.grupoCajaChica.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            // 
+            // 
+            // 
+            this.grupoCajaChica.TitleStyle.Class = "";
+            this.grupoCajaChica.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.grupoCajaChica.TitleStyleMouseOver.Class = "";
+            this.grupoCajaChica.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // btnMovEnvios
+            // 
+            this.btnMovEnvios.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnMovEnvios.Image = global::KAROL.Properties.Resources.envios5;
+            this.btnMovEnvios.ImageFixedSize = new System.Drawing.Size(64, 64);
+            this.btnMovEnvios.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
+            this.btnMovEnvios.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnMovEnvios.Name = "btnMovEnvios";
+            this.btnMovEnvios.SubItemsExpandWidth = 14;
+            resources.ApplyResources(this.btnMovEnvios, "btnMovEnvios");
+            // 
+            // btnDevCompra
+            // 
+            this.btnDevCompra.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnDevCompra.Image = global::KAROL.Properties.Resources.devolcuion;
+            this.btnDevCompra.ImageFixedSize = new System.Drawing.Size(64, 55);
+            this.btnDevCompra.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
+            this.btnDevCompra.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnDevCompra.Name = "btnDevCompra";
+            this.btnDevCompra.SubItemsExpandWidth = 14;
+            resources.ApplyResources(this.btnDevCompra, "btnDevCompra");
+            // 
+            // grupoTransComerciales
+            // 
+            this.grupoTransComerciales.AutoOverflowEnabled = true;
+            this.grupoTransComerciales.AutoSizeItems = false;
+            // 
+            // 
+            // 
+            this.grupoTransComerciales.BackgroundMouseOverStyle.Class = "";
+            this.grupoTransComerciales.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.grupoTransComerciales.BackgroundStyle.Class = "";
+            this.grupoTransComerciales.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.grupoTransComerciales.ContainerControlProcessDialogKey = true;
+            resources.ApplyResources(this.grupoTransComerciales, "grupoTransComerciales");
+            this.grupoTransComerciales.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnMovCompras,
+            this.btnDevVenta});
+            this.grupoTransComerciales.Name = "grupoTransComerciales";
+            this.grupoTransComerciales.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            // 
+            // 
+            // 
+            this.grupoTransComerciales.TitleStyle.Class = "";
+            this.grupoTransComerciales.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.grupoTransComerciales.TitleStyleMouseOver.Class = "";
+            this.grupoTransComerciales.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // btnMovCompras
+            // 
+            this.btnMovCompras.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnMovCompras.Image = global::KAROL.Properties.Resources.compras2;
+            this.btnMovCompras.ImageFixedSize = new System.Drawing.Size(64, 64);
+            this.btnMovCompras.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
+            this.btnMovCompras.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnMovCompras.Name = "btnMovCompras";
+            this.btnMovCompras.SubItemsExpandWidth = 14;
+            resources.ApplyResources(this.btnMovCompras, "btnMovCompras");
+            this.btnMovCompras.Click += new System.EventHandler(this.btnMovCompras_Click);
+            // 
+            // btnDevVenta
+            // 
+            this.btnDevVenta.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.btnDevVenta.Image = global::KAROL.Properties.Resources.devolcuion2;
+            this.btnDevVenta.ImageFixedSize = new System.Drawing.Size(64, 55);
+            this.btnDevVenta.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
+            this.btnDevVenta.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnDevVenta.Name = "btnDevVenta";
+            this.btnDevVenta.SubItemsExpandWidth = 14;
+            resources.ApplyResources(this.btnDevVenta, "btnDevVenta");
             // 
             // ribbonPanel4
             // 
@@ -812,192 +998,6 @@
             this.btnOperacionesRecibirInv.SubItemsExpandWidth = 14;
             resources.ApplyResources(this.btnOperacionesRecibirInv, "btnOperacionesRecibirInv");
             // 
-            // ribbonPanel2
-            // 
-            resources.ApplyResources(this.ribbonPanel2, "ribbonPanel2");
-            this.ribbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonPanel2.Controls.Add(this.ribbonBar1);
-            this.ribbonPanel2.Controls.Add(this.grupoCajaChica);
-            this.ribbonPanel2.Controls.Add(this.grupoTransComerciales);
-            this.ribbonPanel2.Name = "ribbonPanel2";
-            // 
-            // 
-            // 
-            this.ribbonPanel2.Style.Class = "";
-            this.ribbonPanel2.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel2.StyleMouseDown.Class = "";
-            this.ribbonPanel2.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel2.StyleMouseOver.Class = "";
-            this.ribbonPanel2.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // ribbonBar1
-            // 
-            this.ribbonBar1.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar1.BackgroundMouseOverStyle.Class = "";
-            this.ribbonBar1.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar1.BackgroundStyle.Class = "";
-            this.ribbonBar1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar1.ContainerControlProcessDialogKey = true;
-            resources.ApplyResources(this.ribbonBar1, "ribbonBar1");
-            this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnPagosProveedores,
-            this.btnPagosClientes});
-            this.ribbonBar1.Name = "ribbonBar1";
-            this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            // 
-            // 
-            // 
-            this.ribbonBar1.TitleStyle.Class = "";
-            this.ribbonBar1.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar1.TitleStyleMouseOver.Class = "";
-            this.ribbonBar1.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // btnPagosProveedores
-            // 
-            this.btnPagosProveedores.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnPagosProveedores.Image = global::KAROL.Properties.Resources.pagotarjeta;
-            this.btnPagosProveedores.ImageFixedSize = new System.Drawing.Size(64, 55);
-            this.btnPagosProveedores.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
-            this.btnPagosProveedores.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnPagosProveedores.Name = "btnPagosProveedores";
-            this.btnPagosProveedores.SubItemsExpandWidth = 14;
-            resources.ApplyResources(this.btnPagosProveedores, "btnPagosProveedores");
-            // 
-            // btnPagosClientes
-            // 
-            this.btnPagosClientes.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnPagosClientes.Image = global::KAROL.Properties.Resources.cobros;
-            this.btnPagosClientes.ImageFixedSize = new System.Drawing.Size(64, 55);
-            this.btnPagosClientes.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
-            this.btnPagosClientes.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnPagosClientes.Name = "btnPagosClientes";
-            this.btnPagosClientes.SubItemsExpandWidth = 14;
-            resources.ApplyResources(this.btnPagosClientes, "btnPagosClientes");
-            // 
-            // grupoCajaChica
-            // 
-            this.grupoCajaChica.AutoOverflowEnabled = true;
-            this.grupoCajaChica.AutoSizeItems = false;
-            // 
-            // 
-            // 
-            this.grupoCajaChica.BackgroundMouseOverStyle.Class = "";
-            this.grupoCajaChica.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.grupoCajaChica.BackgroundStyle.Class = "";
-            this.grupoCajaChica.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.grupoCajaChica.ContainerControlProcessDialogKey = true;
-            resources.ApplyResources(this.grupoCajaChica, "grupoCajaChica");
-            this.grupoCajaChica.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnMovEnvios,
-            this.btnDevCompra});
-            this.grupoCajaChica.Name = "grupoCajaChica";
-            this.grupoCajaChica.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            // 
-            // 
-            // 
-            this.grupoCajaChica.TitleStyle.Class = "";
-            this.grupoCajaChica.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.grupoCajaChica.TitleStyleMouseOver.Class = "";
-            this.grupoCajaChica.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // btnMovEnvios
-            // 
-            this.btnMovEnvios.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnMovEnvios.Image = global::KAROL.Properties.Resources.envios5;
-            this.btnMovEnvios.ImageFixedSize = new System.Drawing.Size(64, 64);
-            this.btnMovEnvios.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
-            this.btnMovEnvios.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnMovEnvios.Name = "btnMovEnvios";
-            this.btnMovEnvios.SubItemsExpandWidth = 14;
-            resources.ApplyResources(this.btnMovEnvios, "btnMovEnvios");
-            // 
-            // btnDevCompra
-            // 
-            this.btnDevCompra.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnDevCompra.Image = global::KAROL.Properties.Resources.devolcuion;
-            this.btnDevCompra.ImageFixedSize = new System.Drawing.Size(64, 55);
-            this.btnDevCompra.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
-            this.btnDevCompra.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnDevCompra.Name = "btnDevCompra";
-            this.btnDevCompra.SubItemsExpandWidth = 14;
-            resources.ApplyResources(this.btnDevCompra, "btnDevCompra");
-            // 
-            // grupoTransComerciales
-            // 
-            this.grupoTransComerciales.AutoOverflowEnabled = true;
-            this.grupoTransComerciales.AutoSizeItems = false;
-            // 
-            // 
-            // 
-            this.grupoTransComerciales.BackgroundMouseOverStyle.Class = "";
-            this.grupoTransComerciales.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.grupoTransComerciales.BackgroundStyle.Class = "";
-            this.grupoTransComerciales.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.grupoTransComerciales.ContainerControlProcessDialogKey = true;
-            resources.ApplyResources(this.grupoTransComerciales, "grupoTransComerciales");
-            this.grupoTransComerciales.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnMovCompras,
-            this.btnDevVenta});
-            this.grupoTransComerciales.Name = "grupoTransComerciales";
-            this.grupoTransComerciales.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            // 
-            // 
-            // 
-            this.grupoTransComerciales.TitleStyle.Class = "";
-            this.grupoTransComerciales.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.grupoTransComerciales.TitleStyleMouseOver.Class = "";
-            this.grupoTransComerciales.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // btnMovCompras
-            // 
-            this.btnMovCompras.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnMovCompras.Image = global::KAROL.Properties.Resources.compras2;
-            this.btnMovCompras.ImageFixedSize = new System.Drawing.Size(64, 64);
-            this.btnMovCompras.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
-            this.btnMovCompras.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnMovCompras.Name = "btnMovCompras";
-            this.btnMovCompras.SubItemsExpandWidth = 14;
-            resources.ApplyResources(this.btnMovCompras, "btnMovCompras");
-            this.btnMovCompras.Click += new System.EventHandler(this.btnMovCompras_Click);
-            // 
-            // btnDevVenta
-            // 
-            this.btnDevVenta.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.btnDevVenta.Image = global::KAROL.Properties.Resources.devolcuion2;
-            this.btnDevVenta.ImageFixedSize = new System.Drawing.Size(64, 55);
-            this.btnDevVenta.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
-            this.btnDevVenta.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnDevVenta.Name = "btnDevVenta";
-            this.btnDevVenta.SubItemsExpandWidth = 14;
-            resources.ApplyResources(this.btnDevVenta, "btnDevVenta");
-            // 
             // moduloCATALOGOS
             // 
             this.moduloCATALOGOS.Name = "moduloCATALOGOS";
@@ -1245,12 +1245,12 @@
             this.Load += new System.EventHandler(this.HOME_Load);
             this.MENU_PRINCIPAL.ResumeLayout(false);
             this.MENU_PRINCIPAL.PerformLayout();
+            this.ribbonPanel2.ResumeLayout(false);
             this.ribbonPanel4.ResumeLayout(false);
             this.ribbonPanel1.ResumeLayout(false);
             this.ribbonPanel3.ResumeLayout(false);
             this.ribbonPanel6.ResumeLayout(false);
             this.ribbonPanel7.ResumeLayout(false);
-            this.ribbonPanel2.ResumeLayout(false);
             this.STATUS_BAR.ResumeLayout(false);
             this.STATUS_BAR.PerformLayout();
             this.ResumeLayout(false);

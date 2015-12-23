@@ -43,7 +43,7 @@ namespace MODELO
             ITEMS_COMPRA.Columns.Add("CATEGORIA").DataType = System.Type.GetType("System.String");
             ITEMS_COMPRA.Columns.Add("COD_ITEM").DataType = System.Type.GetType("System.String");
             ITEMS_COMPRA.Columns.Add("COLOR").DataType = System.Type.GetType("System.String");
-            ITEMS_COMPRA.Columns.Add("CORRIDA").DataType = System.Type.GetType("System.Char");
+            ITEMS_COMPRA.Columns.Add("CORRIDA").DataType = System.Type.GetType("System.String");
             ITEMS_COMPRA.Columns.Add("T1").DataType = System.Type.GetType("System.Int32");
             ITEMS_COMPRA.Columns.Add("T2").DataType = System.Type.GetType("System.Int32");
             ITEMS_COMPRA.Columns.Add("T3").DataType = System.Type.GetType("System.Int32");
