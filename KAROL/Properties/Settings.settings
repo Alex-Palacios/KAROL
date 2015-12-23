@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="KAROL.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SISTEMA" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">KAROL</Value>
+    </Setting>
+    <Setting Name="DRIVER" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MySQL ODBC 5.3 UNICODE Driver</Value>
+    </Setting>
+    <Setting Name="SERVER" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
+    <Setting Name="PUERTO" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">3306</Value>
+    </Setting>
+    <Setting Name="DATABASE" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">karol</Value>
+    </Setting>
+    <Setting Name="USERDB" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">karol</Value>
+    </Setting>
+    <Setting Name="PASSWORD" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">K@r01</Value>
+    </Setting>
+    <Setting Name="SUCURSAL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">01</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62C149CF-C887-4BEA-B6E9-A76709513810}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KAROL</RootNamespace>
+    <AssemblyName>KAROL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>K.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar.Design">
+      <HintPath>..\..\..\Code Snippets\Personalizado\DotNetBar\DevComponents.DotNetBar.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar2">
+      <HintPath>..\..\..\Code Snippets\Personalizado\DotNetBar\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.Instrumentation">
+      <HintPath>..\..\..\Code Snippets\Personalizado\DotNetBar\DevComponents.Instrumentation.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.Instrumentation.Design">
+      <HintPath>..\..\..\Code Snippets\Personalizado\DotNetBar\DevComponents.Instrumentation.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Catalogos\BuscarProveedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\BuscarProveedor.Designer.cs">
+      <DependentUpon>BuscarProveedor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\BuscarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\BuscarCliente.Designer.cs">
+      <DependentUpon>BuscarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\CatalogoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\CatalogoForm.Designer.cs">
+      <DependentUpon>CatalogoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ProveedoresForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\ProveedoresForm.Designer.cs">
+      <DependentUpon>ProveedoresForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\ClientesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\ClientesForm.Designer.cs">
+      <DependentUpon>ClientesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\RegistrarCatalogoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\RegistrarCatalogoForm.Designer.cs">
+      <DependentUpon>RegistrarCatalogoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\RegistrarProveedorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\RegistrarProveedorForm.Designer.cs">
+      <DependentUpon>RegistrarProveedorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Catalogos\RegistrarClienteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogos\RegistrarClienteForm.Designer.cs">
+      <DependentUpon>RegistrarClienteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HOME.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HOME.Designer.cs">
+      <DependentUpon>HOME.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PruebasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebasForm.Designer.cs">
+      <DependentUpon>PruebasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transacciones\ComprasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transacciones\ComprasForm.Designer.cs">
+      <DependentUpon>ComprasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transacciones\IngresoDetalleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transacciones\IngresoDetalleForm.Designer.cs">
+      <DependentUpon>IngresoDetalleForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Catalogos\BuscarProveedor.resx">
+      <DependentUpon>BuscarProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\BuscarCliente.resx">
+      <DependentUpon>BuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\CatalogoForm.resx">
+      <DependentUpon>CatalogoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\ProveedoresForm.resx">
+      <DependentUpon>ProveedoresForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\ClientesForm.resx">
+      <DependentUpon>ClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\RegistrarCatalogoForm.resx">
+      <DependentUpon>RegistrarCatalogoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\RegistrarProveedorForm.resx">
+      <DependentUpon>RegistrarProveedorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Catalogos\RegistrarClienteForm.resx">
+      <DependentUpon>RegistrarClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HOME.resx">
+      <DependentUpon>HOME.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="PruebasForm.resx">
+      <DependentUpon>PruebasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transacciones\ComprasForm.resx">
+      <DependentUpon>ComprasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transacciones\IngresoDetalleForm.resx">
+      <DependentUpon>IngresoDetalleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KAROL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tacon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tacon2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\K.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\windows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clientes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\proveedores.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\catalogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ctalogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compras.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\devolucion.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\envios3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\envio5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\devolucion3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cobros3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagos5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\catalogo1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ctalogo1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\muestra2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\existencias.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventario4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\estadocuenta1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\liquidacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelado.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarios3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\precios1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\permisos3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\configuraciones3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manual1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ControlesPersonalizados\ControlesPersonalizados.csproj">
+      <Project>{eb2f7811-97eb-4482-b608-bcb034b8e26e}</Project>
+      <Name>ControlesPersonalizados</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DDB\DDB.csproj">
+      <Project>{b2b4abb9-bb61-4c6a-a0a5-3b38f8e1ee1b}</Project>
+      <Name>DDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MODELO\MODELO.csproj">
+      <Project>{ebf38fbb-466f-4b82-87ba-39219bd20237}</Project>
+      <Name>MODELO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Startup_Ubuntu.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\db.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sucursales.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cuenta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuarios2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\permisos1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\configuraciones.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lista.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enviosInv.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\entregainv.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kardex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\precios2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\defectuoso.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\graficos3.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\envios5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\compras2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\devolcuion2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\devolcuion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cobros.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pagotarjeta.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar_icon2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gtk-edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_excel.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icono_pdf.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\help.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\credenciales %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="K.ico" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\menos.jpg" />
+    <None Include="Resources\llave.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
