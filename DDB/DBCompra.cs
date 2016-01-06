@@ -13,6 +13,7 @@ namespace DDB
 
     public class DBCompra
     {
+
         private DBConexion conn;
 
         public DBCompra()
@@ -21,31 +22,7 @@ namespace DDB
         }
 
 
-        private string buildItemsCompra(Compra compra)
-        {
-            string items = "";
-            foreach (DataRow row in compra.ITEMS_COMPRA.Rows)
-            {
-                items = items + row.Field<string>("COD_ITEM") + ">"
-                    + row.Field<string>("COLOR") + ">"
-                    + row.Field<string>("CORRIDA") + ">"
-                    + row.Field<int>("T1") + ">"
-                    + row.Field<int>("T2") + ">"
-                    + row.Field<int>("T3") + ">"
-                    + row.Field<int>("T4") + ">"
-                    + row.Field<int>("T5") + ">"
-                    + row.Field<int>("T6") + ">"
-                    + row.Field<int>("T7") + ">"
-                    + row.Field<int>("T8") + ">"
-                    + row.Field<int>("T9") + ">"
-                    + row.Field<int>("T10") + ">"
-                    + row.Field<int>("T11") + ">"
-                    + row.Field<int>("T12") + ">" 
-                    + row.Field<int>("T13") + ">"
-                    + row.Field<decimal>("MONTO") + "&";
-            }
-            return items;
-        }
+
 
 
 
@@ -70,14 +47,14 @@ namespace DDB
                 doc_compra.Direction = ParameterDirection.Input;
                 MySqlParameter tipo_pago = cmd.Parameters.Add("pago_compra", MySqlDbType.Int32);
                 tipo_pago.Direction = ParameterDirection.Input;
+                MySqlParameter ajuste_compra = cmd.Parameters.Add("ajuste_compra", MySqlDbType.Decimal);
+                ajuste_compra.Direction = ParameterDirection.Input;
                 MySqlParameter total_compra = cmd.Parameters.Add("total_compra", MySqlDbType.Decimal);
                 total_compra.Direction = ParameterDirection.Input;
                 MySqlParameter cat_compra = cmd.Parameters.Add("cat_compra", MySqlDbType.VarChar, 50);
                 cat_compra.Direction = ParameterDirection.Input;
                 MySqlParameter nota_compra = cmd.Parameters.Add("nota_compra", MySqlDbType.VarChar, 100);
                 nota_compra.Direction = ParameterDirection.Input;
-                MySqlParameter items_compra = cmd.Parameters.Add("items_compra", MySqlDbType.LongText);
-                items_compra.Direction = ParameterDirection.Input;
 
                 MySqlParameter suc = cmd.Parameters.Add("suc", MySqlDbType.VarChar, 2);
                 suc.Direction = ParameterDirection.Input;
@@ -92,11 +69,11 @@ namespace DDB
                 tipo_compra.Value = (int)compra.TIPO;
                 doc_compra.Value = compra.DOCUMENTO;
                 tipo_pago.Value = (int)compra.TIPO_PAGO;
+                ajuste_compra.Value = compra.AJUSTE;
                 total_compra.Value = compra.TOTAL;
                 cat_compra.Value = compra.CATEGORIA.ToString();
                 nota_compra.Value = compra.NOTA;
 
-                items_compra.Value = buildItemsCompra(compra);
 
                 suc.Value = sucursal;
                 emp.Value = empleado;
@@ -139,14 +116,14 @@ namespace DDB
                 doc_compra.Direction = ParameterDirection.Input;
                 MySqlParameter tipo_pago = cmd.Parameters.Add("pago_compra", MySqlDbType.Int32);
                 tipo_pago.Direction = ParameterDirection.Input;
+                MySqlParameter ajuste_compra = cmd.Parameters.Add("ajuste_compra", MySqlDbType.Decimal);
+                ajuste_compra.Direction = ParameterDirection.Input;
                 MySqlParameter total_compra = cmd.Parameters.Add("total_compra", MySqlDbType.Decimal);
                 total_compra.Direction = ParameterDirection.Input;
                 MySqlParameter cat_compra = cmd.Parameters.Add("cat_compra", MySqlDbType.VarChar, 50);
                 cat_compra.Direction = ParameterDirection.Input;
                 MySqlParameter nota_compra = cmd.Parameters.Add("nota_compra", MySqlDbType.VarChar, 100);
                 nota_compra.Direction = ParameterDirection.Input;
-                MySqlParameter items_compra = cmd.Parameters.Add("items_compra", MySqlDbType.LongText);
-                items_compra.Direction = ParameterDirection.Input;
 
                 MySqlParameter suc = cmd.Parameters.Add("suc", MySqlDbType.VarChar, 2);
                 suc.Direction = ParameterDirection.Input;
@@ -162,12 +139,11 @@ namespace DDB
                 tipo_compra.Value = (int)compra.TIPO;
                 doc_compra.Value = compra.DOCUMENTO;
                 tipo_pago.Value = (int)compra.TIPO_PAGO;
+                ajuste_compra.Value = compra.AJUSTE;
                 total_compra.Value = compra.TOTAL;
                 cat_compra.Value = compra.CATEGORIA.ToString();
                 nota_compra.Value = compra.NOTA;
-
-                items_compra.Value = buildItemsCompra(compra);
-
+                
                 suc.Value = sucursal;
                 emp.Value = empleado;
                 sys.Value = sistema;
@@ -257,22 +233,16 @@ namespace DDB
 
 
 
-
-        public DataRow getCompraByDoc(string documento)
+        public DataRow getUltimaCompra(string sucursal)
         {
             MySqlDataReader reader;
             DataTable datos = new DataTable();
             DataRow row = null;
             try
             {
-                string sql = "SELECT * FROM karol.view_compras WHERE DOCUMENTO = @doc;";
+                string sql = "SELECT * FROM karol.view_compras WHERE ID_COMPRA = (SELECT MAX(ID_COMPRA) FROM karol.compra);";
                 MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
                 cmd.CommandType = CommandType.Text;
-
-                MySqlParameter doc = cmd.Parameters.Add("doc", MySqlDbType.VarChar, 20);
-                doc.Direction = ParameterDirection.Input;
-
-                doc.Value = documento;
 
                 reader = cmd.ExecuteReader();
                 if (reader.HasRows)
@@ -294,6 +264,44 @@ namespace DDB
 
 
 
+        public DataRow getCompraByDoc(string documento)
+        {
+            MySqlDataReader reader;
+            DataTable datos = new DataTable();
+            DataRow row = null;
+            try
+            {
+                string sql = "SELECT * FROM karol.view_compras WHERE DOCUMENTO = @doc ORDER BY ID_COMPRA DESC;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
+                cmd.CommandType = CommandType.Text;
+
+                MySqlParameter doc = cmd.Parameters.Add("doc", MySqlDbType.VarChar, 20);
+                doc.Direction = ParameterDirection.Input;
+
+                doc.Value = documento;
+
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    datos.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("ERROR AL OBTENER COMPRA", "ERROR EN CONSULTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (datos.Rows.Count > 0)
+            {
+                row = datos.Rows[0];
+            }
+            return row;
+        }
+
+
+
+
+        
 
 
 

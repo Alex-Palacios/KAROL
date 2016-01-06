@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Catalogo.cs" />
     <Compile Include="Compra.cs" />
+    <Compile Include="Preingreso.cs" />
     <Compile Include="Proveedor.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Enumeradores.cs" />

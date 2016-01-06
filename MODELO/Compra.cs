@@ -32,6 +32,9 @@ namespace MODELO
         public string PROVEEDOR;
         public string TELEFONO;
 
+        public int UNIDADES;
+        public decimal MONTO;
+
         public DataTable ITEMS_COMPRA;
 
 
@@ -40,7 +43,7 @@ namespace MODELO
             //DATOS POR DEFECTO
             ITEMS_COMPRA = new DataTable();
             ITEMS_COMPRA.Columns.Add("CODIGO").DataType = System.Type.GetType("System.String");
-            ITEMS_COMPRA.Columns.Add("CATEGORIA").DataType = System.Type.GetType("System.String");
+            ITEMS_COMPRA.Columns.Add("COMO").DataType = System.Type.GetType("System.Int32");
             ITEMS_COMPRA.Columns.Add("COD_ITEM").DataType = System.Type.GetType("System.String");
             ITEMS_COMPRA.Columns.Add("COLOR").DataType = System.Type.GetType("System.String");
             ITEMS_COMPRA.Columns.Add("CORRIDA").DataType = System.Type.GetType("System.String");
@@ -57,6 +60,8 @@ namespace MODELO
             ITEMS_COMPRA.Columns.Add("T11").DataType = System.Type.GetType("System.Int32");
             ITEMS_COMPRA.Columns.Add("T12").DataType = System.Type.GetType("System.Int32");
             ITEMS_COMPRA.Columns.Add("T13").DataType = System.Type.GetType("System.Int32");
+            ITEMS_COMPRA.Columns.Add("UNIDADES").DataType = System.Type.GetType("System.Int32");
+            ITEMS_COMPRA.Columns.Add("COSTO").DataType = System.Type.GetType("System.Decimal");
             ITEMS_COMPRA.Columns.Add("MONTO").DataType = System.Type.GetType("System.Decimal");
         }
 
@@ -85,15 +90,19 @@ namespace MODELO
                 if (dr.Table.Columns.Contains("NOTA")) { compra.NOTA = dr.Field<string>("NOTA"); }
 
                 if (dr.Table.Columns.Contains("RESPONSABLE")) { compra.RESPONSABLE = dr.Field<string>("RESPONSABLE"); }
-                if (dr.Table.Columns.Contains("PERSONA")) { compra.PERSONA = (eNaturalezaPersona)Enum.Parse(typeof(eNaturalezaPersona), dr.Field<string>("PERSONA")); }
+                if (dr.Table.Columns.Contains("NATURALEZA")) { compra.PERSONA = (eNaturalezaPersona)Enum.Parse(typeof(eNaturalezaPersona), dr.Field<string>("NATURALEZA")); }
                 if (dr.Table.Columns.Contains("PROVEEDOR")) { compra.RESPONSABLE = dr.Field<string>("PROVEEDOR"); }
-                if (dr.Table.Columns.Contains("TELEFONO")) { compra.RESPONSABLE = dr.Field<string>("TELEFONO"); }
+                if (dr.Table.Columns.Contains("TEL")) { compra.RESPONSABLE = dr.Field<string>("TEL"); }
+                if (dr.Table.Columns.Contains("UNIDADES")) { compra.UNIDADES = Int32.Parse(dr.Field<Int64>("UNIDADES").ToString()); }
+                if (dr.Table.Columns.Contains("MONTO")) { compra.MONTO = dr.Field<decimal>("MONTO"); }
                 
 
             }
             return compra;
 
         }
+
+
 
         public Compra Copy()
         {

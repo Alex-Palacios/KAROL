@@ -193,7 +193,7 @@ namespace KAROL.Catalogos
             SELECTED = new Catalogo();
             if (tblCATALOGO.CurrentCell != null )
             {
-                SELECTED = Catalogo.ConvertToCatalogo(CATALOGO.Rows[tblCATALOGO.CurrentCell.RowIndex]);
+                SELECTED = Catalogo.ConvertToCatalogo(FILTRO.Rows[tblCATALOGO.CurrentCell.RowIndex]);
                 
                 btnEditar.Enabled = true;
                 btnEliminar.Enabled = true;
@@ -231,7 +231,7 @@ namespace KAROL.Catalogos
             {
                 ACCION = eOperacion.UPDATE;
                 cargarSelected();
-                string oldCodigo = CATALOGO.Rows[tblCATALOGO.CurrentCell.RowIndex].Field<string>("COD_ITEM");
+                string oldCodigo = FILTRO.Rows[tblCATALOGO.CurrentCell.RowIndex].Field<string>("COD_ITEM");
                 string newCodigo = Controles.InputBox("CAMBIAR ESTILO " + oldCodigo + " POR : ", "EDITAR ESTILO");
                 if (newCodigo.Trim() != "")
                 {

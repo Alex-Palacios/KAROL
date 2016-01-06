@@ -13,7 +13,7 @@
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -114,6 +114,12 @@
     <Compile Include="Catalogos\RegistrarClienteForm.Designer.cs">
       <DependentUpon>RegistrarClienteForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Configuraciones\ConfigPreciosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Configuraciones\ConfigPreciosForm.Designer.cs">
+      <DependentUpon>ConfigPreciosForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HOME.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,24 @@
     </Compile>
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operaciones\CorteInvForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\CorteInvForm.Designer.cs">
+      <DependentUpon>CorteInvForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operaciones\ImportCorteInvExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\ImportCorteInvExcel.Designer.cs">
+      <DependentUpon>ImportCorteInvExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Operaciones\ItemInvForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operaciones\ItemInvForm.Designer.cs">
+      <DependentUpon>ItemInvForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,6 +169,12 @@
     </Compile>
     <Compile Include="Transacciones\ComprasForm.Designer.cs">
       <DependentUpon>ComprasForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transacciones\ConfirmarCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transacciones\ConfirmarCompra.Designer.cs">
+      <DependentUpon>ConfirmarCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Transacciones\IngresoDetalleForm.cs">
       <SubType>Form</SubType>
@@ -176,11 +206,23 @@
     <EmbeddedResource Include="Catalogos\RegistrarClienteForm.resx">
       <DependentUpon>RegistrarClienteForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Configuraciones\ConfigPreciosForm.resx">
+      <DependentUpon>ConfigPreciosForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HOME.resx">
       <DependentUpon>HOME.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\CorteInvForm.resx">
+      <DependentUpon>CorteInvForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\ImportCorteInvExcel.resx">
+      <DependentUpon>ImportCorteInvExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operaciones\ItemInvForm.resx">
+      <DependentUpon>ItemInvForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -200,6 +242,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Transacciones\ComprasForm.resx">
       <DependentUpon>ComprasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transacciones\ConfirmarCompra.resx">
+      <DependentUpon>ConfirmarCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transacciones\IngresoDetalleForm.resx">
       <DependentUpon>IngresoDetalleForm.cs</DependentUpon>
@@ -221,6 +266,8 @@
     <None Include="Resources\KAROL.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\PLANTILLA CORTE CALZADO.xlsx" />
+    <None Include="Resources\PLANTILLA_1.xlsx" />
     <None Include="Resources\tacon.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -444,6 +491,27 @@
     <None Include="Resources\menos.jpg" />
     <None Include="Resources\llave.png" />
   </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Access.Dao">
+      <Guid>{4AC9E1DA-5BAD-4AC7-86E3-24F4CDCECA28}</Guid>
+      <VersionMajor>12</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

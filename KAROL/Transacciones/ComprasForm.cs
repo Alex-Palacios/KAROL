@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ControlesPersonalizados;
 
 namespace KAROL.Transacciones
 {
@@ -31,6 +32,7 @@ namespace KAROL.Transacciones
         //VARIABLES
         private DBKAROL dbKAROL;
         private DBProveedor dbProveedor;
+        private DBInventario dbInventario;
         private DBCompra dbCompra;
 
         private eOperacion ACCION;
@@ -44,6 +46,7 @@ namespace KAROL.Transacciones
             this.tblITEMS_CALZADO.InitColumnTable();
             dbKAROL = new DBKAROL();
             dbProveedor = new DBProveedor();
+            dbInventario = new DBInventario();
             dbCompra = new DBCompra();
         }
 
@@ -58,11 +61,10 @@ namespace KAROL.Transacciones
             btnEliminar.Visible = false;
             btnBuscar.Visible = false;
             btnLog.Visible = false;
-            btnReimprimir.Visible = false;
 
             foreach (DataRow p in HOME.Instance().USUARIO.PERMISOS.Rows)
             {
-                if (p.Field<string>("CODIGO") == "P7")
+                if (p.Field<string>("CODIGO") == "P4")
                 {
                     btnNuevo.Visible = p.Field<bool>("REGISTRAR");
                     btnGuardar.Visible = p.Field<bool>("REGISTRAR") || p.Field<bool>("ACTUALIZAR");
@@ -71,7 +73,6 @@ namespace KAROL.Transacciones
                     btnEliminar.Visible = p.Field<bool>("ELIMINAR");
                     btnBuscar.Visible = p.Field<bool>("BUSCAR");
                     btnLog.Visible = p.Field<bool>("LOG");
-                    btnReimprimir.Visible = p.Field<bool>("REIMPRIMIR");
                 }
             }
 
@@ -109,7 +110,6 @@ namespace KAROL.Transacciones
         {
             grbCOMPRA.Enabled = false;
             tabDETALLE.Enabled = false;
-            tblITEMS_CALZADO.ReadOnly = true;
             txtAJUSTE.ReadOnly = true;
         }
 
@@ -118,7 +118,6 @@ namespace KAROL.Transacciones
         {
             grbCOMPRA.Enabled = true;
             tabDETALLE.Enabled = true;
-            tblITEMS_CALZADO.ReadOnly = false;
             txtAJUSTE.ReadOnly = false;
         }
 
@@ -144,6 +143,22 @@ namespace KAROL.Transacciones
         }
 
 
+        public void cargarPreingreso()
+        {
+            COMPRA.ITEMS_COMPRA = dbInventario.getPREINGRESO(ACCION, HOME.Instance().USUARIO.COD_EMPLEADO);
+            refreshPreingreso();
+        }
+
+
+
+
+        public void refreshPreingreso()
+        {
+            tblITEMS_CALZADO.DataSource = COMPRA.ITEMS_COMPRA;
+            calcularTotales();
+        }
+
+
 
 
         private void NUEVO(object sender, EventArgs e)
@@ -154,8 +169,10 @@ namespace KAROL.Transacciones
             COMPRA.FECHA = HOME.Instance().FECHA_SISTEMA;
             COMPRA.TIPO = eTipoCompra.IMPORTADO;
             COMPRA.TIPO_PAGO = eTipoPago.EFECTIVO;
+            cargarPreingreso();
             cargarDatosProveedor(null);
             cargarDatosCompra();
+
             desbloquear();
             txtDOCUMENTO.Focus();
 
@@ -164,9 +181,10 @@ namespace KAROL.Transacciones
             btnEditar.Enabled = false;
             btnEliminar.Enabled = false;
             btnLog.Enabled = false;
-            btnReimprimir.Enabled = false;
 
         }
+
+
 
 
 
@@ -250,9 +268,116 @@ namespace KAROL.Transacciones
 
         private void calcularTotales()
         {
-            COMPRA.TOTAL = COMPRA.ITEMS_COMPRA.AsEnumerable().Select(r => r.Field<decimal>("MONTO")).Sum();
+            COMPRA.UNIDADES = COMPRA.ITEMS_COMPRA.AsEnumerable().Select(r => Int32.Parse(r.Field<Int64>("UNIDADES").ToString())).Sum();
+            COMPRA.MONTO = COMPRA.ITEMS_COMPRA.AsEnumerable().Select(r => r.Field<decimal>("MONTO")).Sum();
+            COMPRA.TOTAL = COMPRA.MONTO + COMPRA.AJUSTE;
+
+            lbTOTAL_UNIDADES.Text = COMPRA.UNIDADES.ToString("N0");
+            lbTOTAL_MONTO.Text = COMPRA.MONTO.ToString("C2");
+            txtAJUSTE.Text = COMPRA.AJUSTE.ToString("C2");
             txtTOTAL.Text = COMPRA.TOTAL.ToString("C2");
         }
+
+
+
+        private void cbxSUCURSAL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxSUCURSAL.ValueMember != "" && cbxSUCURSAL.SelectedIndex >= 0)
+            {
+                switch (ACCION)
+                {
+                    case eOperacion.INSERT:
+                        COMPRA.COD_SUC = (string)cbxSUCURSAL.SelectedValue;
+                        txtDOCUMENTO.Text = COMPRA.DOCUMENTO;
+                        break;
+
+                }
+            }
+        }
+
+
+
+
+        private void rdbImportado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbImportado.Checked)
+            {
+                COMPRA.TIPO = eTipoCompra.IMPORTADO;
+            }
+        }
+
+
+
+        private void rdbNacional_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdbNacional.Checked)
+            {
+                COMPRA.TIPO = eTipoCompra.NACIONAL;
+            }
+
+        }
+
+
+
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            IngresoDetalleForm nuevo = new IngresoDetalleForm(ACCION,eCategoria.CALZADO);
+            nuevo.ShowDialog(this);
+        }
+
+
+
+
+
+        private void btnDeleteItem_Click(object sender, EventArgs e)
+        {
+            if (tblITEMS_CALZADO.CurrentCell != null && tblITEMS_CALZADO.CurrentCell.RowIndex >=0)
+            {
+                if (dbInventario.deletePREINGRESO(COMPRA.ITEMS_COMPRA.Rows[tblITEMS_CALZADO.CurrentCell.RowIndex].Field<int>("ID"), HOME.Instance().SUCURSAL.COD_SUC, HOME.Instance().USUARIO.COD_EMPLEADO, Properties.Settings.Default.SISTEMA))
+                {
+                    cargarPreingreso();
+                }
+                
+            }
+        }
+
+
+
+
+
+        private void btnCleanAll_Click(object sender, EventArgs e)
+        {
+            DialogResult clean = MessageBox.Show("¿Limpiar preingreso?", "LIMPIAR DETALLE PREINGRESO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (clean == DialogResult.Yes)
+            {
+                if (dbInventario.limpiarPREINGRESO(ACCION, HOME.Instance().USUARIO.COD_EMPLEADO))
+                {
+                    cargarPreingreso();
+                }
+            }
+        }
+
+
+
+        private void txtAJUSTE_Leave(object sender, EventArgs e)
+        {
+            COMPRA.AJUSTE = (decimal)0.00;
+            decimal valor;
+            if (Decimal.TryParse(txtAJUSTE.Text, System.Globalization.NumberStyles.Currency, null, out valor))
+            {
+                COMPRA.AJUSTE = Decimal.Round(valor, 2, MidpointRounding.AwayFromZero);
+            }
+            else
+            {
+                MessageBox.Show("FORMATO INVALIDO", "ERROR DE DATOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            txtAJUSTE.Text = COMPRA.AJUSTE.ToString("C2");
+            calcularTotales();
+        }
+
+
+
 
 
         private bool validarCompra()
@@ -269,10 +394,10 @@ namespace KAROL.Transacciones
                 else if (COMPRA.COD_SUC == null || COMPRA.COD_SUC == string.Empty)
                 {
                     OK = false;
-                    MessageBox.Show("Seleccione Sucursal", "VALIDACION DE DATOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("ELIJA SUCURSAL", "VALIDACION DE DATOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return OK;
                 }
-                else if (COMPRA.DOCUMENTO == string.Empty)
+                else if (COMPRA.DOCUMENTO == null || COMPRA.DOCUMENTO == string.Empty)
                 {
                     OK = false;
                     MessageBox.Show("DOCUMENTO DE COMPRA INVALIDO", "VALIDACION DE DATOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -297,7 +422,6 @@ namespace KAROL.Transacciones
 
 
 
-
         private bool validarItemsCompra()
         {
             bool OK = true;
@@ -305,6 +429,32 @@ namespace KAROL.Transacciones
             {
                 foreach (DataGridViewRow row in tblITEMS_CALZADO.Rows)
                 {
+                    if (row.Cells["UNIDADES"].Value == null || (Int64)row.Cells["UNIDADES"].Value <= 0)
+                    {
+                        OK = false;
+                        tblITEMS_CALZADO.CurrentRow.Selected = false;
+                        tblITEMS_CALZADO.Rows[row.Index].Selected = true;
+                        MessageBox.Show("CANTIDAD INVALIDA EN DETALLE DE COMPRA", "VALIDACION DE DATOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    }
+                    if (row.Cells["ESTILO"].Value == null || row.Cells["ESTILO"].Value == string.Empty)
+                    {
+                        OK = false;
+                        tblITEMS_CALZADO.CurrentRow.Selected = false;
+                        tblITEMS_CALZADO.Rows[row.Index].Selected = true;
+                        tblITEMS_CALZADO.Rows[row.Index].Selected = true;
+                        MessageBox.Show("PRODUCTO NO ESPECIFICADO EN DETALLE DE COMPRA", "VALIDACION DE DATOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    }
+                    if (row.Cells["COLOR"].Value == null || row.Cells["COLOR"].Value == string.Empty)
+                    {
+                        OK = false;
+                        tblITEMS_CALZADO.CurrentRow.Selected = false;
+                        tblITEMS_CALZADO.Rows[row.Index].Selected = true;
+                        tblITEMS_CALZADO.Rows[row.Index].Selected = true;
+                        MessageBox.Show("COLOR VACIO EN DETALLE DE COMPRA", "VALIDACION DE DATOS", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        break;
+                    }
                     if (row.Cells["MONTO"].Value == null || Decimal.Parse(row.Cells["MONTO"].FormattedValue.ToString(), System.Globalization.NumberStyles.Currency) <= 0)
                     {
                         OK = false;
@@ -328,40 +478,176 @@ namespace KAROL.Transacciones
 
 
 
-        private void btnAddItem_Click(object sender, EventArgs e)
-        {
-            switch (tabDETALLE.SelectedTab.Name)
-            {
-                case "pagCALZADO":
-                    IngresoDetalleForm nuevo = new IngresoDetalleForm(eCategoria.CALZADO);
-                    nuevo.ShowDialog(this);
-                    break;
-                case "pagCARTERA":
-                    break;
-                case "pagROPA":
-                    break;
-                case "pagMOCHILA":
-                    break;
 
+        private void GUARDAR(object sender, EventArgs e)
+        {
+            txtTOTAL.Focus();
+            COMPRA.FECHA = dateCompra.Value;
+            COMPRA.DOCUMENTO = txtDOCUMENTO.Text.Trim();
+            COMPRA.NOTA = txtNOTA.Text;
+            if (validarCompra())
+            {
+                ConfirmarCompra confirmar = new ConfirmarCompra(COMPRA, ACCION);
+                confirmar.ShowDialog();
+            }
+
+        }
+
+
+        private void CANCELAR(object sender, EventArgs e)
+        {
+            switch (ACCION)
+            {
+                case eOperacion.INSERT:
+                    NUEVO(null, null);
+                    break;
+                case eOperacion.UPDATE:
+                    dbInventario.limpiarPREINGRESO(ACCION, HOME.Instance().USUARIO.COD_EMPLEADO);
+                    ACCION = eOperacion.SEARCH;
+                    COMPRA = SELECTED.Copy();
+                    cargarDatosProveedor(null);
+                    cargarDatosCompra();
+                    bloquear();
+
+                    btnGuardar.Enabled = false;
+                    btnCancelar.Enabled = false;
+                    btnEditar.Enabled = true;
+                    btnEliminar.Enabled = true;
+                    btnLog.Enabled = true;
+                    break;
             }
         }
 
-        public void AgregarItem(eCategoria categoria,string estilo,eCorridaCalzado curva, DataTable ITEMS,decimal monto){
-            foreach (DataRow row in ITEMS.Rows)
-                {
-                    int totalItem = 0;
-                    decimal montoItem = (decimal)0.00;
-                    totalItem = totalItem + row.Field<int>("T1") + row.Field<int>("T2") + row.Field<int>("T3") + row.Field<int>("T4") +
-                        row.Field<int>("T5") + row.Field<int>("T6") + row.Field<int>("T7") + row.Field<int>("T8") + row.Field<int>("T9") + row.Field<int>("T10") + row.Field<int>("T11") + row.Field<int>("T12") + row.Field<int>("T13");
-                    if (totalItem != 0)
-                    {
-                        montoItem = Decimal.Round(monto / totalItem,2,MidpointRounding.AwayFromZero);
-                    }
 
-                    COMPRA.ITEMS_COMPRA.Rows.Add("CODIGO X", categoria.ToString(), estilo, row.Field<string>("COLOR"), curva.ToString(), row.Field<int>("T1"), row.Field<int>("T2"), row.Field<int>("T3"), row.Field<int>("T4"), row.Field<int>("T5"),
-                        row.Field<int>("T6"), row.Field<int>("T7"), row.Field<int>("T8"), row.Field<int>("T9"), row.Field<int>("T10"), row.Field<int>("T11"), row.Field<int>("T12"), row.Field<int>("T13"),montoItem);
-                }
+
+        private void EDITAR(object sender, EventArgs e)
+        {
+            if (COMPRA != null)
+            {
+                ACCION = eOperacion.UPDATE;
+                dbInventario.setPREINGRESO(COMPRA, HOME.Instance().USUARIO.COD_EMPLEADO);
+                cargarPreingreso();
+                desbloquear();
+
+                btnGuardar.Enabled = true;
+                btnCancelar.Enabled = true;
+                btnEditar.Enabled = false;
+                btnEliminar.Enabled = false;
+                btnLog.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("COMPRA NO CARGADA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
+
+
+
+
+        private void ELIMINAR(object sender, EventArgs e)
+        {
+            if (COMPRA != null)
+            {
+                ACCION = eOperacion.DELETE;
+                DialogResult eliminar = MessageBox.Show("¿Está seguro que desea eliminar la COMPRA " + COMPRA.DOCUMENTO + " con FECHA:" + COMPRA.FECHA.Date.ToString("dd/MM/yyyy") + " ?", "ELIMINAR COMPRA REGISTRADA", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (eliminar == DialogResult.Yes)
+                {
+                    string autorizacion = Controles.InputBoxPassword("CODIGO", "CODIGO DE AUTORIZACION");
+                    if (autorizacion != "" && DBKAROL.md5(autorizacion) == HOME.Instance().USUARIO.PASSWORD)
+                    {
+                        if (dbCompra.delete(COMPRA, HOME.Instance().SUCURSAL.COD_SUC, HOME.Instance().USUARIO.COD_EMPLEADO, Properties.Settings.Default.SISTEMA))
+                        {
+                            NUEVO(null, null);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("CODIGO DE AUTORIZACION INVALIDO", "DENEGADO", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("COMPRA NO CARGADA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+
+
+
+
+
+        private void BUSCAR(object sender, EventArgs e)
+        {
+            string numCONT = Controles.InputBox("COMPRA #: ", "BUSCAR");
+            if (numCONT != "")
+            {
+                if (buscarCompra(numCONT))
+                {
+                    MessageBox.Show("COMPRA # " + COMPRA.DOCUMENTO + " CARGADA", "ENCONTRADO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("COMPRA NO ENCONTRADA", "NO ENCONTRADA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+
+        }
+
+
+
+        public bool buscarCompra(string documento)
+        {
+            bool OK = false;
+            SELECTED = Compra.ConvertToCompra(dbCompra.getCompraByDoc(documento));
+            if (SELECTED != null)
+            {
+                ACCION = eOperacion.SEARCH;
+                SELECTED.ITEMS_COMPRA = dbCompra.getItemsCompra(SELECTED);
+                COMPRA = SELECTED.Copy();
+                cargarDatosProveedor(null);
+                cargarDatosCompra();
+                calcularTotales();
+                bloquear();
+                OK = true;
+
+                btnGuardar.Enabled = false;
+                btnCancelar.Enabled = false;
+                btnEditar.Enabled = true;
+                btnEliminar.Enabled = true;
+                btnLog.Enabled = true;
+            }
+            else
+            {
+                OK = false;
+            }
+            return OK;
+        }
+
+
+
+
+
+        private void LOG(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AYUDA(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ANULAR(object sender, EventArgs e)
+        {
+
+        }
+
+       
+
+        
 
         
 

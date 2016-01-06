@@ -1,6 +1,6 @@
-﻿namespace KAROL.Transacciones
+﻿namespace KAROL.Operaciones
 {
-    partial class IngresoDetalleForm
+    partial class ItemInvForm
     {
         /// <summary>
         /// Required designer variable.
@@ -41,7 +41,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IngresoDetalleForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ItemInvForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbxCOMO = new System.Windows.Forms.ComboBox();
@@ -74,6 +74,8 @@
             this.cbxESTILO = new DevComponents.DotNetBar.Controls.ComboTree();
             this.COD_ITEM = new DevComponents.AdvTree.ColumnHeader();
             this.MARCA = new DevComponents.AdvTree.ColumnHeader();
+            this.dateIngreso = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tblDETALLE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCajas)).BeginInit();
             this.SuspendLayout();
@@ -407,7 +409,6 @@
             this.cbxESTILO.Size = new System.Drawing.Size(115, 23);
             this.cbxESTILO.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbxESTILO.TabIndex = 113;
-            this.cbxESTILO.SelectedIndexChanged += new System.EventHandler(this.cbxESTILO_SelectedIndexChanged);
             // 
             // COD_ITEM
             // 
@@ -423,12 +424,34 @@
             this.MARCA.Text = "MARCA";
             this.MARCA.Width.Absolute = 150;
             // 
-            // IngresoDetalleForm
+            // dateIngreso
+            // 
+            this.dateIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateIngreso.Location = new System.Drawing.Point(470, 21);
+            this.dateIngreso.Name = "dateIngreso";
+            this.dateIngreso.Size = new System.Drawing.Size(99, 20);
+            this.dateIngreso.TabIndex = 114;
+            this.dateIngreso.Value = new System.DateTime(2015, 12, 31, 0, 0, 0, 0);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label3.Location = new System.Drawing.Point(357, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(107, 13);
+            this.label3.TabIndex = 115;
+            this.label3.Text = "FECHA INGRESO";
+            // 
+            // ItemInvForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(620, 276);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dateIngreso);
             this.Controls.Add(this.cbxESTILO);
             this.Controls.Add(this.btnLISTAR);
             this.Controls.Add(this.label7);
@@ -446,7 +469,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
-            this.Name = "IngresoDetalleForm";
+            this.Name = "ItemInvForm";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "D E T A L L E";
             this.Load += new System.EventHandler(this.IngresoDetalleForm_Load);
@@ -491,5 +514,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn T11;
         private System.Windows.Forms.DataGridViewTextBoxColumn T12;
         private System.Windows.Forms.DataGridViewTextBoxColumn T13;
+        private System.Windows.Forms.DateTimePicker dateIngreso;
+        private System.Windows.Forms.Label label3;
     }
 }

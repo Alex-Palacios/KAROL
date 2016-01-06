@@ -102,26 +102,12 @@ namespace KAROL.Catalogos
             btnLog.Enabled = false;
         }
 
+
+
         public void cargarDatos()
         {
-            switch (ACCION)
-            {
-                case eOperacion.INSERT:
-                    CARTERA = dbProveedor.findByFechaInicio(HOME.Instance().FECHA_SISTEMA);
-                    tblPROVEEDORES.DataSource = CARTERA.Copy();
-                    break;
-                case eOperacion.UPDATE:
-                    CARTERA = dbProveedor.findByFechaInicio(HOME.Instance().FECHA_SISTEMA);
-                    tblPROVEEDORES.DataSource = CARTERA.Copy();
-                    break;
-                case eOperacion.DELETE:
-                    CARTERA = dbProveedor.findByFechaInicio(HOME.Instance().FECHA_SISTEMA);
-                    tblPROVEEDORES.DataSource = CARTERA.Copy();
-                    break;
-                case eOperacion.SEARCH:
-                    tblPROVEEDORES.DataSource = CARTERA.Copy();
-                    break;
-            }
+            CARTERA = dbProveedor.showProveedores();
+            tblPROVEEDORES.DataSource = CARTERA.Copy();
             bloquear();
         }
 

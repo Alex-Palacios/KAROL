@@ -177,6 +177,86 @@ namespace DDB
 
         //CONTROL DE PRECIOS
 
+        private string buildItemsPrecio(DataTable precios)
+        {
+            string items = "";
+            foreach (DataRow row in precios.Rows)
+            {
+                items = items + row.Field<string>("COD_ITEM") + ">"
+                    + row.Field<decimal>("PRECIO") + ">"
+                    + row.Field<decimal>("DESCUENTO") + ">"
+                    + row.Field<decimal>("LIQUIDACION") + "&";
+            }
+            return items;
+        }
+
+
+        public DataTable getPrecios(eCategoria categoria)
+        {
+            MySqlDataReader reader;
+            DataTable datos = new DataTable();
+            DataRow row = null;
+            try
+            {
+                string sql = "SELECT * FROM karol.view_lista_precios WHERE CATEGORIA = @cat_inv;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
+                cmd.CommandType = CommandType.Text;
+
+                MySqlParameter cat_inv = cmd.Parameters.Add("cat_inv", MySqlDbType.VarChar, 50);
+                cat_inv.Direction = ParameterDirection.Input;
+
+                cat_inv.Value = categoria.ToString();
+
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    datos.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("NO SE PUDO CONSULTAR LOS PRECIOS DE "+categoria.ToString()+" \n" + e.Message, "ERROR EN CONSULTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return datos;
+        }
+
+
+        public bool setPrecios(DataTable precios, string sucursal, string empleado, string sistema)
+        {
+            bool OK = true;
+            try
+            {
+                string sql = "karol.SP_SET_PRECIOS";
+                MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                MySqlParameter items_precios = cmd.Parameters.Add("items_precios", MySqlDbType.LongText);
+                items_precios.Direction = ParameterDirection.Input;
+
+                MySqlParameter suc = cmd.Parameters.Add("suc", MySqlDbType.VarChar, 2);
+                suc.Direction = ParameterDirection.Input;
+                MySqlParameter emp = cmd.Parameters.Add("emp", MySqlDbType.VarChar, 15);
+                emp.Direction = ParameterDirection.Input;
+                MySqlParameter sys = cmd.Parameters.Add("sys", MySqlDbType.VarChar, 20);
+                sys.Direction = ParameterDirection.Input;
+
+                items_precios.Value = buildItemsPrecio(precios);
+
+                suc.Value = sucursal;
+                emp.Value = empleado;
+                sys.Value = sistema;
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("LISTA DE PRECIOS ACTUALIZADA", "OPERACION FINALIZADA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception e)
+            {
+                OK = false;
+                MessageBox.Show(e.Message, "ERROR AL ACTUALIZAR PRECIOS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return OK;
+        }
         
         //CONTROL DE REGLAS DEL NEGOCIO
 

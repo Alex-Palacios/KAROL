@@ -9,30 +9,44 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ControlesPersonalizados;
 
-namespace KAROL.Transacciones
+namespace KAROL.Operaciones
 {
     using MODELO;
     using DDB;
 
-    public partial class IngresoDetalleForm : Form
+    public partial class ItemInvForm : Form
     {
         private eCategoria CATEGORIA;
         private eOperacion ACCION;
         private DBCatalogo dbCatalogo;
         private DBInventario dbInventario;
-        private DBCompra dbCompra;
         private Preingreso PREINGRESO;
+        private Preingreso SELECTED;
 
-        public IngresoDetalleForm(eOperacion accion,eCategoria categoria)
+        public ItemInvForm(eOperacion accion,eCategoria categoria)
         {
             InitializeComponent();
             dbCatalogo = new DBCatalogo();
-            dbCompra = new DBCompra();
             dbInventario = new DBInventario();
             PREINGRESO = new Preingreso();
             this.CATEGORIA = categoria;
             this.ACCION = accion;
+
         }
+
+
+
+        public ItemInvForm(eOperacion accion, Preingreso pre)
+        {
+            InitializeComponent();
+            dbCatalogo = new DBCatalogo();
+            dbInventario = new DBInventario();
+            PREINGRESO = pre;
+            this.CATEGORIA = pre.CATEGORIA;
+            this.ACCION = accion;
+
+        }
+
 
 
         private void IngresoDetalleForm_Load(object sender, EventArgs e)
@@ -48,35 +62,53 @@ namespace KAROL.Transacciones
                 cbxESTILO.ValueMember = "COD_ITEM";
                 cbxESTILO.SelectedIndex = 0;
             }
-            limpiar();
+
+            switch (ACCION)
+            {
+                case eOperacion.INSERT:
+                    cbxCOMO.Enabled = true;
+                    numCajas.Enabled = true;
+                    reset();
+                    break;
+                case eOperacion.UPDATE:
+                    cbxCOMO.Enabled = false;
+                    numCajas.Enabled = false;
+                    cargarPreingreso();
+                    break;
+            }
+
+        }
+
+
+        private void reset()
+        {
+            PREINGRESO.ITEMS.Clear();
+            PREINGRESO.UNIDADES = 0;
+            PREINGRESO.MONTO = (decimal)0.00;
+
+            lbTOTAL.Text = ""+PREINGRESO.UNIDADES;
+            txtMONTO.Text = PREINGRESO.MONTO.ToString("C2");
+
+        }
+
+        private void cargarPreingreso()
+        {
+            cbxESTILO.SelectedValue = PREINGRESO.ESTILO;
+            cbxCORRIDA.SelectedItem = PREINGRESO.CORRIDA;
+            dateIngreso.Value = PREINGRESO.FECHA_INGRESO;
+            cbxCOMO.SelectedItem = PREINGRESO.COMO;
+            numCajas.Value = PREINGRESO.CAJAS;
+              
+            numCajas.Value = PREINGRESO.CAJAS;
+            lbTOTAL.Text = ""+PREINGRESO.UNIDADES;
+            txtMONTO.Text = PREINGRESO.MONTO.ToString("C2");
             tblDETALLE.DataSource = PREINGRESO.ITEMS;
         }
 
 
 
 
-        private void limpiar()
-        {
-            PREINGRESO.ITEMS.Clear();
-            PREINGRESO.MONTO = (decimal)0.00;
-            PREINGRESO.CAJAS = 0;
-            PREINGRESO.UNIDADES = 0;
-            
-            lbTOTAL.Text = "" + PREINGRESO.UNIDADES;
-            txtMONTO.Text = PREINGRESO.MONTO.ToString("C2");
-            calcularTotales();
-        }
 
-
-
-        private void cbxESTILO_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbxESTILO.SelectedIndex >= 0)
-            {
-                PREINGRESO.ESTILO = (string)cbxESTILO.SelectedValue;
-                limpiar();
-            }
-        }
 
 
 
@@ -330,35 +362,51 @@ namespace KAROL.Transacciones
         private void btnLISTAR_Click(object sender, EventArgs e)
         {
             PREINGRESO.CRUD = ACCION;
+            PREINGRESO.COD_SUC = HOME.Instance().SUCURSAL.COD_SUC;
             PREINGRESO.CATEGORIA = CATEGORIA;
+            PREINGRESO.FECHA_INGRESO = dateIngreso.Value;
             PREINGRESO.CAJAS = (int)numCajas.Value;
             PREINGRESO.ESTILO = (string)cbxESTILO.SelectedValue;
+
             if (validar())
             {
-                switch (PREINGRESO.COMO)
+                switch (ACCION)
                 {
-                    case eIngresarComo.CAJA:
-                        for (int c = 1; c <= PREINGRESO.CAJAS; c++)
+                    case eOperacion.INSERT:
+                        switch (PREINGRESO.COMO)
                         {
-                            string codigo = string.Empty;
-                            while (codigo == null || codigo.Trim() == string.Empty)
-                            {
-                                codigo = Controles.InputBox("CODIGO", "CODIGO DE BULTO");
-                            }
-                            PREINGRESO.CODIGO = codigo;
-                            dbInventario.insertPREINGRESO(PREINGRESO, HOME.Instance().SUCURSAL.COD_SUC, HOME.Instance().USUARIO.COD_EMPLEADO, Properties.Settings.Default.SISTEMA);
+                            case eIngresarComo.CAJA:
+                                for (int c = 1; c <= PREINGRESO.CAJAS; c++)
+                                {
+                                    string codigo = string.Empty;
+                                    while (codigo == null || codigo.Trim() == string.Empty)
+                                    {
+                                        codigo = Controles.InputBox("CODIGO", "CODIGO DE BULTO");
+                                    }
+                                    PREINGRESO.CODIGO = codigo;
+                                    dbInventario.insertInvInit(PREINGRESO, HOME.Instance().SUCURSAL.COD_SUC, HOME.Instance().USUARIO.COD_EMPLEADO, Properties.Settings.Default.SISTEMA);
+                                }
+                                CorteInvForm.Instance().cargarInvInicial();
+                                this.Close();
+                                break;
+                            case eIngresarComo.UNITARIO:
+                                if (dbInventario.insertInvInit(PREINGRESO, HOME.Instance().SUCURSAL.COD_SUC, HOME.Instance().USUARIO.COD_EMPLEADO, Properties.Settings.Default.SISTEMA)) ;
+                                {
+                                    CorteInvForm.Instance().cargarInvInicial();
+                                    this.Close();
+                                }
+                                break;
                         }
-                        ComprasForm.Instance().cargarPreingreso();
-                        this.Close();
                         break;
-                    case eIngresarComo.UNITARIO:
-                        if (dbInventario.insertPREINGRESO(PREINGRESO, HOME.Instance().SUCURSAL.COD_SUC, HOME.Instance().USUARIO.COD_EMPLEADO, Properties.Settings.Default.SISTEMA)) ;
+                    case eOperacion.UPDATE:
+                        if (dbInventario.updateInvInit(PREINGRESO, HOME.Instance().SUCURSAL.COD_SUC, HOME.Instance().USUARIO.COD_EMPLEADO, Properties.Settings.Default.SISTEMA)) ;
                         {
-                            ComprasForm.Instance().cargarPreingreso();
+                            CorteInvForm.Instance().cargarInvInicial();
                             this.Close();
                         }
                         break;
                 }
+                
                 
             }
         }

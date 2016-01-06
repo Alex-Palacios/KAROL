@@ -116,7 +116,7 @@ namespace MODELO
 
     public enum eIngresarComo
     {
-        CAJA,
+        CAJA = 1,
         UNITARIO
     }
 

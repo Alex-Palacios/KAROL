@@ -392,13 +392,33 @@ namespace KAROL
 
 
         //MENU OPERACIONES
-
+        private void btnOperacionesCorteInv_Click(object sender, EventArgs e)
+        {
+            Operaciones.CorteInvForm corte;
+            corte = Operaciones.CorteInvForm.Instance();
+            corte.MdiParent = this;
+            corte.Show();
+            if (corte.WindowState == FormWindowState.Minimized)
+            {
+                corte.WindowState = FormWindowState.Normal;
+            }
+        }
 
        
 
 
         // MENU CONFIGURACION
-        
+        private void menuConfigPrecios(object sender, EventArgs e)
+        {
+            Configuraciones.ConfigPreciosForm precios;
+            precios = Configuraciones.ConfigPreciosForm.Instance();
+            precios.MdiParent = this;
+            precios.Show();
+            if (precios.WindowState == FormWindowState.Minimized)
+            {
+                precios.WindowState = FormWindowState.Normal;
+            }
+        }
 
 
         // MENU REPORTES
@@ -628,6 +648,9 @@ namespace KAROL
                 case "C2":
                     formato = "$#,##0.00_);[Red]($#,##0.00)";
                     break;
+                case "P2":
+                    formato = "0.00%";
+                    break;
                 default:
                     formato = "@";
                     break;
@@ -646,6 +669,8 @@ namespace KAROL
                 prueba.WindowState = FormWindowState.Normal;
             }
         }
+
+        
 
         
 

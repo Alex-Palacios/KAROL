@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="DBCatalogo.cs" />
     <Compile Include="DBCompra.cs" />
+    <Compile Include="DBInventario.cs" />
     <Compile Include="DBProveedor.cs" />
     <Compile Include="DBCliente.cs" />
     <Compile Include="DBConexion.cs" />
