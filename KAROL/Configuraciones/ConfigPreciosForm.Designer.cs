@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigPreciosForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tblPRECIOS = new System.Windows.Forms.DataGridView();
             this.opciones = new System.Windows.Forms.ToolStrip();
             this.btnGuardar = new System.Windows.Forms.ToolStripButton();
@@ -40,18 +41,19 @@
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnBuscar = new System.Windows.Forms.ToolStripButton();
+            this.btnExportarExcel = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnLog = new System.Windows.Forms.ToolStripButton();
             this.btnAyuda = new System.Windows.Forms.ToolStripButton();
-            this.btnExportarExcel = new System.Windows.Forms.ToolStripButton();
             this.cbxFiltroMarca = new System.Windows.Forms.ComboBox();
             this.txtFiltroEstilo = new System.Windows.Forms.TextBox();
             this.lbTOTAL = new System.Windows.Forms.Label();
             this.COD_ITEM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MARCA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRECIO_MAYOREO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCUENTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LIQUIDACION = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PRECIO_DETALLE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.tblPRECIOS)).BeginInit();
             this.opciones.SuspendLayout();
             this.SuspendLayout();
@@ -65,14 +67,15 @@
             this.tblPRECIOS.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.COD_ITEM,
             this.MARCA,
-            this.PRECIO,
+            this.PRECIO_MAYOREO,
             this.DESCUENTO,
-            this.LIQUIDACION});
+            this.LIQUIDACION,
+            this.PRECIO_DETALLE});
             this.tblPRECIOS.Location = new System.Drawing.Point(0, 56);
             this.tblPRECIOS.Name = "tblPRECIOS";
             this.tblPRECIOS.ReadOnly = true;
             this.tblPRECIOS.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.tblPRECIOS.Size = new System.Drawing.Size(612, 296);
+            this.tblPRECIOS.Size = new System.Drawing.Size(667, 296);
             this.tblPRECIOS.TabIndex = 0;
             this.tblPRECIOS.DataSourceChanged += new System.EventHandler(this.tblPRECIOS_DataSourceChanged);
             this.tblPRECIOS.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblPRECIOS_CellEndEdit);
@@ -94,7 +97,7 @@
             this.btnAyuda});
             this.opciones.Location = new System.Drawing.Point(0, 0);
             this.opciones.Name = "opciones";
-            this.opciones.Size = new System.Drawing.Size(612, 25);
+            this.opciones.Size = new System.Drawing.Size(679, 25);
             this.opciones.TabIndex = 3;
             this.opciones.Text = "toolStrip1";
             // 
@@ -148,6 +151,16 @@
             this.btnBuscar.ToolTipText = "Buscar";
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // btnExportarExcel
+            // 
+            this.btnExportarExcel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnExportarExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportarExcel.Image")));
+            this.btnExportarExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnExportarExcel.Name = "btnExportarExcel";
+            this.btnExportarExcel.Size = new System.Drawing.Size(23, 22);
+            this.btnExportarExcel.Text = "toolStripButton1";
+            this.btnExportarExcel.Click += new System.EventHandler(this.btnExportarExcel_Click);
+            // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
@@ -170,16 +183,6 @@
             this.btnAyuda.Name = "btnAyuda";
             this.btnAyuda.Size = new System.Drawing.Size(23, 22);
             this.btnAyuda.ToolTipText = "Ayuda";
-            // 
-            // btnExportarExcel
-            // 
-            this.btnExportarExcel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnExportarExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportarExcel.Image")));
-            this.btnExportarExcel.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnExportarExcel.Name = "btnExportarExcel";
-            this.btnExportarExcel.Size = new System.Drawing.Size(23, 22);
-            this.btnExportarExcel.Text = "toolStripButton1";
-            this.btnExportarExcel.Click += new System.EventHandler(this.btnExportarExcel_Click);
             // 
             // cbxFiltroMarca
             // 
@@ -225,21 +228,21 @@
             this.MARCA.ReadOnly = true;
             this.MARCA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // PRECIO
+            // PRECIO_MAYOREO
             // 
-            this.PRECIO.DataPropertyName = "PRECIO";
-            dataGridViewCellStyle7.Format = "C2";
-            this.PRECIO.DefaultCellStyle = dataGridViewCellStyle7;
-            this.PRECIO.HeaderText = "PRECIO";
-            this.PRECIO.Name = "PRECIO";
-            this.PRECIO.ReadOnly = true;
-            this.PRECIO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.PRECIO_MAYOREO.DataPropertyName = "PRECIO_MAYOREO";
+            dataGridViewCellStyle1.Format = "C2";
+            this.PRECIO_MAYOREO.DefaultCellStyle = dataGridViewCellStyle1;
+            this.PRECIO_MAYOREO.HeaderText = "PRECIO MAYOREO";
+            this.PRECIO_MAYOREO.Name = "PRECIO_MAYOREO";
+            this.PRECIO_MAYOREO.ReadOnly = true;
+            this.PRECIO_MAYOREO.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // DESCUENTO
             // 
             this.DESCUENTO.DataPropertyName = "DESCUENTO";
-            dataGridViewCellStyle8.Format = "P2";
-            this.DESCUENTO.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Format = "P2";
+            this.DESCUENTO.DefaultCellStyle = dataGridViewCellStyle2;
             this.DESCUENTO.HeaderText = "DESCUENTO";
             this.DESCUENTO.Name = "DESCUENTO";
             this.DESCUENTO.ReadOnly = true;
@@ -248,19 +251,28 @@
             // LIQUIDACION
             // 
             this.LIQUIDACION.DataPropertyName = "LIQUIDACION";
-            dataGridViewCellStyle9.Format = "C2";
-            this.LIQUIDACION.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Format = "C2";
+            this.LIQUIDACION.DefaultCellStyle = dataGridViewCellStyle3;
             this.LIQUIDACION.HeaderText = "LIQUIDACION";
             this.LIQUIDACION.Name = "LIQUIDACION";
             this.LIQUIDACION.ReadOnly = true;
             this.LIQUIDACION.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // PRECIO_DETALLE
+            // 
+            this.PRECIO_DETALLE.DataPropertyName = "PRECIO_DETALLE";
+            dataGridViewCellStyle4.Format = "C2";
+            this.PRECIO_DETALLE.DefaultCellStyle = dataGridViewCellStyle4;
+            this.PRECIO_DETALLE.HeaderText = "PRECIO DETALLE";
+            this.PRECIO_DETALLE.Name = "PRECIO_DETALLE";
+            this.PRECIO_DETALLE.ReadOnly = true;
             // 
             // ConfigPreciosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(612, 353);
+            this.ClientSize = new System.Drawing.Size(679, 353);
             this.Controls.Add(this.cbxFiltroMarca);
             this.Controls.Add(this.txtFiltroEstilo);
             this.Controls.Add(this.lbTOTAL);
@@ -299,8 +311,9 @@
         private System.Windows.Forms.Label lbTOTAL;
         private System.Windows.Forms.DataGridViewTextBoxColumn COD_ITEM;
         private System.Windows.Forms.DataGridViewTextBoxColumn MARCA;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PRECIO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRECIO_MAYOREO;
         private System.Windows.Forms.DataGridViewTextBoxColumn DESCUENTO;
         private System.Windows.Forms.DataGridViewTextBoxColumn LIQUIDACION;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PRECIO_DETALLE;
     }
 }

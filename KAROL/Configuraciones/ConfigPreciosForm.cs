@@ -180,7 +180,7 @@ namespace KAROL.Configuraciones
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            ComboBox categorias = Controles.InputComboBox("CATEGORIA: ", "BUSCAR",Enum.GetValues(new eCategoria().GetType()));
+            ComboBox categorias = Controles.ComboInputBox("CATEGORIA: ", "BUSCAR",Enum.GetValues(new eCategoria().GetType()));
             if (categorias != null && categorias.SelectedIndex >= 0)
             {
                 CATEGORIA = (eCategoria)categorias.SelectedItem;
@@ -307,7 +307,7 @@ namespace KAROL.Configuraciones
             string columnName = tblPRECIOS.Columns[e.ColumnIndex].Name;
             switch (columnName)
             {
-                case "PRECIO":
+                case "PRECIO_MAYOREO":
                     // Verificar si columna esta vacia
                     if (e.FormattedValue != null)
                     {
@@ -327,7 +327,7 @@ namespace KAROL.Configuraciones
                         }
                         else if (valor < 0)
                         {
-                            tblPRECIOS.Rows[e.RowIndex].ErrorText = "PRECIO debe ser mayor o igual a 0";
+                            tblPRECIOS.Rows[e.RowIndex].ErrorText = "PRECIO MAYOREO debe ser mayor o igual a 0";
                             System.Media.SystemSounds.Beep.Play();
                             e.Cancel = true;
                         }
@@ -385,6 +385,32 @@ namespace KAROL.Configuraciones
                         }
                     }
                     break;
+                case "PRECIO_DETALLE":
+                    // Verificar si columna esta vacia
+                    if (e.FormattedValue != null)
+                    {
+                        decimal valor;
+
+                        if (string.IsNullOrEmpty(e.FormattedValue.ToString()))
+                        {
+                            tblPRECIOS.Rows[e.RowIndex].ErrorText = "Columna PRECIO DETALLE Vacia";
+                            System.Media.SystemSounds.Beep.Play();
+                            e.Cancel = true;
+                        }
+                        else if (!Decimal.TryParse(e.FormattedValue.ToString(), System.Globalization.NumberStyles.Currency, null, out valor))
+                        {
+                            tblPRECIOS.Rows[e.RowIndex].ErrorText = "Formato Invalido";
+                            System.Media.SystemSounds.Beep.Play();
+                            e.Cancel = true;
+                        }
+                        else if (valor < 0)
+                        {
+                            tblPRECIOS.Rows[e.RowIndex].ErrorText = "PRECIO DETALLE debe ser mayor o igual a 0";
+                            System.Media.SystemSounds.Beep.Play();
+                            e.Cancel = true;
+                        }
+                    }
+                    break;
             }
         }
 
@@ -395,10 +421,10 @@ namespace KAROL.Configuraciones
             tblPRECIOS.Rows[e.RowIndex].ErrorText = String.Empty;
             if (e.RowIndex >= 0)
             {
-                decimal precio = Decimal.Parse(tblPRECIOS.Rows[e.RowIndex].Cells["PRECIO"].Value.ToString(), System.Globalization.NumberStyles.Currency);
+                decimal precio = Decimal.Parse(tblPRECIOS.Rows[e.RowIndex].Cells["PRECIO_MAYOREO"].Value.ToString(), System.Globalization.NumberStyles.Currency);
                 decimal descuento = Decimal.Parse(tblPRECIOS.Rows[e.RowIndex].Cells["DESCUENTO"].Value.ToString().Replace('%', ' ').Trim(), System.Globalization.NumberStyles.Currency);
                 decimal liquidacion = Decimal.Parse(tblPRECIOS.Rows[e.RowIndex].Cells["LIQUIDACION"].Value.ToString(), System.Globalization.NumberStyles.Currency);
-                
+                decimal detalle = Decimal.Parse(tblPRECIOS.Rows[e.RowIndex].Cells["PRECIO_DETALLE"].Value.ToString(), System.Globalization.NumberStyles.Currency);
                 string columnName = tblPRECIOS.Columns[e.ColumnIndex].Name;
 
                 switch (columnName)

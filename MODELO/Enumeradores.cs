@@ -49,12 +49,29 @@ namespace MODELO
     }
 
 
+
+
     public enum eTipoPago
     {
         EFECTIVO = 1,
         CHEQUE,
         REMESA
     }
+
+
+    public enum ePuestoPersonal
+    {
+        ADMIN = 1,
+        GERENTE,
+        CONTADOR,
+        BODEGA,
+        VENDEDOR,
+        ASESOR,
+        SUPERVISOR
+    }
+
+
+
 
     public enum eTipoUsuario
     {
@@ -65,11 +82,26 @@ namespace MODELO
         VENDEDOR
     }
 
-    public enum eTipoDoc
+    public enum eTipoDocIdent
     {
         DUI,
         NIT,
         NRC
+    }
+
+
+
+    public enum eNIVEL
+    {
+        MAYOREO = 1,
+        DETALLE,
+        DONACION
+    }
+
+    public enum eTipoDoc
+    {
+        FCF,
+        CCF
     }
 
 
@@ -128,9 +160,19 @@ namespace MODELO
         C
     }
 
+    public enum eTipoVenta
+    {
+        CREDITO = 1,
+        CONTADO,
+    }
 
-    
 
+    public enum eEstadoEnvio
+    {
+        EMPACADO,
+        FACTURADO,
+        ANULADO
+    }
 
     class Enumeradores
     {

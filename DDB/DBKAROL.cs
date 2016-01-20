@@ -183,9 +183,10 @@ namespace DDB
             foreach (DataRow row in precios.Rows)
             {
                 items = items + row.Field<string>("COD_ITEM") + ">"
-                    + row.Field<decimal>("PRECIO") + ">"
+                    + row.Field<decimal>("PRECIO_MAYOREO") + ">"
                     + row.Field<decimal>("DESCUENTO") + ">"
-                    + row.Field<decimal>("LIQUIDACION") + "&";
+                    + row.Field<decimal>("LIQUIDACION") + ">"
+                    + row.Field<decimal>("PRECIO_DETALLE") +  "&";
             }
             return items;
         }
@@ -257,10 +258,124 @@ namespace DDB
             }
             return OK;
         }
-        
-        //CONTROL DE REGLAS DEL NEGOCIO
+
+
+
+
+
+
+
+
+        //CONTROL DE PARAMETROS GLOBALES
+
+        public bool setParam(Parametros param)
+        {
+            bool OK = true;
+            try
+            {
+
+                string sql = "karol.SP_SET_PARAM";
+                MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                MySqlParameter nivel = cmd.Parameters.Add("nivelP", MySqlDbType.Int32);
+                nivel.Direction = ParameterDirection.Input;
+                MySqlParameter fecha = cmd.Parameters.Add("fechaP", MySqlDbType.Date);
+                fecha.Direction = ParameterDirection.Input;
+                MySqlParameter auto = cmd.Parameters.Add("autorizoP", MySqlDbType.VarChar, 15);
+                auto.Direction = ParameterDirection.Input;
+                MySqlParameter p_credito = cmd.Parameters.Add("p_credito", MySqlDbType.Int32);
+                p_credito.Direction = ParameterDirection.Input;
+                MySqlParameter p_desc = cmd.Parameters.Add("p_desc", MySqlDbType.Int32);
+                p_desc.Direction = ParameterDirection.Input;
+
+                nivel.Value = (int)param.NIVEL;
+                fecha.Value = param.FECHA.Date.ToString("yyyy-MM-dd"); ;
+                auto.Value = param.COD_EMPLEADO.ToUpper();
+                p_credito.Value = param.PLAZO_CREDITO;
+                p_desc.Value = param.PLAZO_DESC;
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("PARAMETROS DE NEGOCIO ACTUALIZADOS", "OPERACION FINALIZADA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception e)
+            {
+                OK = false;
+                MessageBox.Show(null, e.Message, "ERROR AL ACTUALIZAR PARAMETROS DE NEGOCIO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return OK;
+        }
+
+
+
+
+        public DataRow getParam(eNIVEL nivel)
+        {
+            MySqlDataReader reader;
+            // Creamos nuestro queridisimo DataSet
+            DataTable datos = new DataTable();
+            DataRow row = null;
+            try
+            {
+                string sql = "karol.SP_GET_PARAM";
+                MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                MySqlParameter n = cmd.Parameters.Add("nivelP", MySqlDbType.Int32);
+                n.Direction = ParameterDirection.Input;
+
+                n.Value = (int)nivel;
+
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    datos.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("NO SE PUDO CONSULTAR LOS PARAMETROS DE NEGOCIO" + nivel.ToString() + "\n Detalle: "+e.Message, "ERROR EN CONSULTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (datos.Rows.Count == 1)
+            {
+                row = datos.Rows[0];
+            }
+            return row;
+        }
+
 
         
+
+        //PERSONAL
+        public DataTable getPersonal(ePuestoPersonal puesto)
+        {
+            MySqlDataReader reader;
+            DataTable datos = new DataTable();
+            DataRow row = null;
+            try
+            {
+                string sql = "ddicark.SP_GET_PERSONAL;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                MySqlParameter tipo = cmd.Parameters.Add("tipo", MySqlDbType.VarChar, 50);
+                tipo.Direction = ParameterDirection.Input;
+
+                tipo.Value = puesto.ToString();
+
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    datos.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("NO SE PUEDE CONSULTAR "+puesto.ToString()+ "\n" + e.Message, "ERROR EN CONSULTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return datos;
+        }
 
     }
 }

@@ -624,148 +624,148 @@ namespace DDB
 
 
 
+        public DataTable showExistencias(string sucursal, eCategoria categoria)
+        {
+            MySqlDataReader reader;
+            DataTable datos = new DataTable();
+            try
+            {
+                string sql = "SELECT * FROM karol.view_existencias WHERE BODEGA = @suc AND CATEGORIA = @cat;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
+                cmd.CommandType = CommandType.Text;
 
-        //public DataTable getExistenciasORO()
-        //{
-        //    MySqlDataReader reader;
-        //    DataTable datos = new DataTable();
-        //    try
-        //    {
-        //        string sql = "SELECT * FROM prendasal.view_inv_oro;";
-        //        MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
-        //        cmd.CommandType = CommandType.Text;
+                MySqlParameter suc = cmd.Parameters.Add("suc", MySqlDbType.VarChar, 2);
+                suc.Direction = ParameterDirection.Input;
+                MySqlParameter cat = cmd.Parameters.Add("cat", MySqlDbType.VarChar, 50);
+                cat.Direction = ParameterDirection.Input;
 
-        //        reader = cmd.ExecuteReader();
-        //        if (reader.HasRows)
-        //        {
-        //            datos.Load(reader);
-        //        }
-        //        reader.Close();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        MessageBox.Show(e.Message, "ERROR AL CONSULTAR EXISTENCIAS DE ORO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    return datos;
-        //}
+                suc.Value = sucursal;
+                cat.Value = categoria.ToString();
 
-
-
-
-        //public DataTable getExistenciasARTICULOSbySuc(string sucursal)
-        //{
-        //    MySqlDataReader reader;
-        //    DataTable datos = new DataTable();
-        //    try
-        //    {
-        //        string sql = string.Empty;
-        //        if (sucursal == "00")
-        //        {
-        //            sql = "SELECT * FROM prendasal.view_inv_articulos;";
-        //        }
-        //        else
-        //        {
-        //            sql = "SELECT * FROM prendasal.view_inv_articulos WHERE BODEGA = @suc";
-        //        }
-        //        MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
-        //        cmd.CommandType = CommandType.Text;
-        //        MySqlParameter suc = cmd.Parameters.Add("suc", MySqlDbType.VarChar, 2);
-        //        suc.Direction = ParameterDirection.Input;
-
-        //        suc.Value = sucursal;
-
-        //        reader = cmd.ExecuteReader();
-        //        if (reader.HasRows)
-        //        {
-        //            datos.Load(reader);
-        //        }
-        //        reader.Close();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        MessageBox.Show(e.Message, "ERROR AL CONSULTAR EXISTENCIAS DE ARTICULOS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    return datos;
-        //}
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    datos.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "ERROR AL CONSULTAR INVENTARIO INICIAL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return datos;
+        }
 
 
 
+        public DataTable showExistenciasDetalle(string sucursal,eCategoria categoria)
+        {
+            MySqlDataReader reader;
+            DataTable datos = new DataTable();
+            try
+            {
+                string sql = "SELECT * FROM karol.view_existencias_detalle WHERE BODEGA = @suc AND CATEGORIA = @cat;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
+                cmd.CommandType = CommandType.Text;
 
+                MySqlParameter suc = cmd.Parameters.Add("suc", MySqlDbType.VarChar, 2);
+                suc.Direction = ParameterDirection.Input;
+                MySqlParameter cat = cmd.Parameters.Add("cat", MySqlDbType.VarChar, 50);
+                cat.Direction = ParameterDirection.Input;
 
+                suc.Value = sucursal;
+                cat.Value = categoria.ToString();
 
-
-
-        //public DataTable getExistenciasARTICULOS(string sucursal, string articulo)
-        //{
-        //    MySqlDataReader reader;
-        //    DataTable datos = new DataTable();
-        //    try
-        //    {
-        //        string sql = "SELECT * FROM prendasal.view_inv_articulos WHERE 1=1 ";
-        //        if (sucursal != "00")
-        //        {
-        //            sql = sql + "AND BODEGA = @suc ";
-        //        }
-        //        if (articulo != "TODAS")
-        //        {
-        //            sql = sql + "AND COD_ITEM LIKE @item ";
-        //        }
-        //        sql = sql + "ORDER BY CODIGO;";
-        //        MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
-        //        cmd.CommandType = CommandType.Text;
-        //        MySqlParameter suc = cmd.Parameters.Add("suc", MySqlDbType.VarChar, 2);
-        //        suc.Direction = ParameterDirection.Input;
-        //        MySqlParameter item = cmd.Parameters.Add("item", MySqlDbType.VarChar, 20);
-        //        item.Direction = ParameterDirection.Input;
-
-        //        suc.Value = sucursal;
-        //        item.Value = articulo;
-
-        //        reader = cmd.ExecuteReader();
-        //        if (reader.HasRows)
-        //        {
-        //            datos.Load(reader);
-        //        }
-        //        reader.Close();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        MessageBox.Show(e.Message, "ERROR AL CONSULTAR EXISTENCIAS DE ARTICULOS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    return datos;
-        //}
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    datos.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "ERROR AL CONSULTAR INVENTARIO INICIAL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return datos;
+        }
 
 
 
 
 
-        //public DataTable getExistenciasARTICULOSbyCodigo(string codigo)
-        //{
-        //    MySqlDataReader reader;
-        //    DataTable datos = new DataTable();
-        //    try
-        //    {
-        //        string sql = "SELECT * FROM prendasal.view_inv_articulos WHERE CODIGO LIKE @cod";
-        //        MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
-        //        cmd.CommandType = CommandType.Text;
-        //        MySqlParameter cod = cmd.Parameters.Add("cod", MySqlDbType.VarChar, 25);
-        //        cod.Direction = ParameterDirection.Input;
 
-        //        cod.Value = codigo + "%";
+        public DataTable showExistenciasDetalleCaja(eCategoria categoria,string numcaja)
+        {
+            MySqlDataReader reader;
+            DataTable datos = new DataTable();
+            try
+            {
+                string sql = "SELECT * FROM karol.view_existencias_detalle WHERE CODIGO = @codigo_pre AND CATEGORIA = @cat_pre;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
+                cmd.CommandType = CommandType.Text;
 
-        //        reader = cmd.ExecuteReader();
-        //        if (reader.HasRows)
-        //        {
-        //            datos.Load(reader);
-        //        }
-        //        reader.Close();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        MessageBox.Show(e.Message, "ERROR AL CONSULTAR EXISTENCIAS DE ARTICULOS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //    return datos;
-        //}
+                MySqlParameter codigo_pre = cmd.Parameters.Add("codigo_pre", MySqlDbType.VarChar, 50);
+                codigo_pre.Direction = ParameterDirection.Input;
+                MySqlParameter cat_pre = cmd.Parameters.Add("cat_pre", MySqlDbType.VarChar, 50);
+                cat_pre.Direction = ParameterDirection.Input;
+
+                codigo_pre.Value = numcaja;
+                cat_pre.Value = categoria.ToString();
+
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    datos.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "ERROR AL CONSULTAR INVENTARIO INICIAL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return datos;
+        }
+
+
+
+        public DataRow findCajaByCodigo(eCategoria categoria, string numcaja)
+        {
+            MySqlDataReader reader;
+            DataTable datos = new DataTable();
+            DataRow row = null;
+            try
+            {
+                string sql = "SELECT * FROM karol.view_existencias WHERE CODIGO = @codigo_pre AND CATEGORIA = @cat_pre;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
+                cmd.CommandType = CommandType.Text;
+
+                MySqlParameter codigo_pre = cmd.Parameters.Add("codigo_pre", MySqlDbType.VarChar, 50);
+                codigo_pre.Direction = ParameterDirection.Input;
+                MySqlParameter cat_pre = cmd.Parameters.Add("cat_pre", MySqlDbType.VarChar, 50);
+                cat_pre.Direction = ParameterDirection.Input;
+
+                codigo_pre.Value = numcaja;
+                cat_pre.Value = categoria.ToString();
+
+                reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    datos.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "ERROR AL CONSULTAR INVENTARIO INICIAL", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (datos.Rows.Count > 0)
+            {
+                row = datos.Rows[0];
+            }
+            return row;
+        }
+
 
 
 

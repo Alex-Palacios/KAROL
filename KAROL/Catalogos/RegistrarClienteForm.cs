@@ -239,7 +239,6 @@ namespace KAROL.Catalogos
                     if (validar())
                     {
                         c = buildCLIENTE();
-                        c.LIMITE_CREDITO = (decimal)0.00;
                         string autorizacion = Controles.InputBoxPassword("CODIGO", "CODIGO DE AUTORIZACION");
                         if (autorizacion != "" && DBKAROL.md5(autorizacion) == HOME.Instance().USUARIO.PASSWORD)
                         {
@@ -261,7 +260,6 @@ namespace KAROL.Catalogos
                     {
                         c = buildCLIENTE();
                         c.COD_CLIENTE = SELECTED.COD_CLIENTE;
-                        c.LIMITE_CREDITO = SELECTED.LIMITE_CREDITO;
                         string autorizacion = Controles.InputBoxPassword("CODIGO", "CODIGO DE AUTORIZACION");
                         if (autorizacion != "" && DBKAROL.md5(autorizacion) == HOME.Instance().USUARIO.PASSWORD)
                         {

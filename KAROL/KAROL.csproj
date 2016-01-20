@@ -53,9 +53,12 @@
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="MySql.Data, Version=6.9.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -126,6 +129,16 @@
     <Compile Include="HOME.Designer.cs">
       <DependentUpon>HOME.cs</DependentUpon>
     </Compile>
+    <Compile Include="Informes\DSEnvio.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSEnvio.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Informes\DSItemsF.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSItemsF.xsd</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,11 +165,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PruebasForm.cs">
+    <Compile Include="Reportes\DetalleItemInvForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PruebasForm.Designer.cs">
-      <DependentUpon>PruebasForm.cs</DependentUpon>
+    <Compile Include="Reportes\DetalleItemInvForm.Designer.cs">
+      <DependentUpon>DetalleItemInvForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\RptExistenciasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\RptExistenciasForm.Designer.cs">
+      <DependentUpon>RptExistenciasForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
@@ -176,11 +195,29 @@
     <Compile Include="Transacciones\ConfirmarCompra.Designer.cs">
       <DependentUpon>ConfirmarCompra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Transacciones\ConfirmarVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transacciones\ConfirmarVenta.Designer.cs">
+      <DependentUpon>ConfirmarVenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transacciones\EgresoDetalleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transacciones\EgresoDetalleForm.Designer.cs">
+      <DependentUpon>EgresoDetalleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transacciones\IngresoDetalleForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Transacciones\IngresoDetalleForm.Designer.cs">
       <DependentUpon>IngresoDetalleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transacciones\VentasForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transacciones\VentasForm.Designer.cs">
+      <DependentUpon>VentasForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Catalogos\BuscarProveedor.resx">
       <DependentUpon>BuscarProveedor.cs</DependentUpon>
@@ -212,6 +249,10 @@
     <EmbeddedResource Include="HOME.resx">
       <DependentUpon>HOME.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Informes\AeroFlash.rdlc" />
+    <EmbeddedResource Include="Informes\CCF.rdlc" />
+    <EmbeddedResource Include="Informes\FCF.rdlc" />
+    <EmbeddedResource Include="Informes\NotaEnvio.rdlc" />
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,8 +275,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="PruebasForm.resx">
-      <DependentUpon>PruebasForm.cs</DependentUpon>
+    <EmbeddedResource Include="Reportes\DetalleItemInvForm.resx">
+      <DependentUpon>DetalleItemInvForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\RptExistenciasForm.resx">
+      <DependentUpon>RptExistenciasForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashScreen.resx">
       <DependentUpon>SplashScreen.cs</DependentUpon>
@@ -246,9 +290,40 @@
     <EmbeddedResource Include="Transacciones\ConfirmarCompra.resx">
       <DependentUpon>ConfirmarCompra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Transacciones\ConfirmarVenta.resx">
+      <DependentUpon>ConfirmarVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transacciones\EgresoDetalleForm.resx">
+      <DependentUpon>EgresoDetalleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Transacciones\IngresoDetalleForm.resx">
       <DependentUpon>IngresoDetalleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Transacciones\VentasForm.resx">
+      <DependentUpon>VentasForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Informes\DSEnvio.xsc">
+      <DependentUpon>DSEnvio.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSEnvio.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSEnvio.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Informes\DSEnvio.xss">
+      <DependentUpon>DSEnvio.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSItemsF.xsc">
+      <DependentUpon>DSItemsF.xsd</DependentUpon>
+    </None>
+    <None Include="Informes\DSItemsF.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSItemsF.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Informes\DSItemsF.xss">
+      <DependentUpon>DSItemsF.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -487,6 +562,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="K.ico" />
+    <None Include="Resources\edit_16.png" />
+    <None Include="Resources\ojo.png" />
+    <None Include="Resources\edit_40b.png" />
+    <None Include="Resources\signal.jpg" />
     <None Include="Resources\printer.png" />
     <None Include="Resources\menos.jpg" />
     <None Include="Resources\llave.png" />

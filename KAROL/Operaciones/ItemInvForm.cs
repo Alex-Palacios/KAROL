@@ -176,7 +176,8 @@ namespace KAROL.Operaciones
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            DataRow nuevo = PREINGRESO.ITEMS.Rows.Add("",0,0,0,0,0,0,0,0,0,0,0,0,0);
+            PREINGRESO.ITEMS.Rows.Add("",0,0,0,0,0,0,0,0,0,0,0,0,0);
+            tblDETALLE.DataSource = PREINGRESO.ITEMS;
         }
 
 

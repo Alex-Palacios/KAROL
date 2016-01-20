@@ -241,22 +241,11 @@ namespace KAROL.Catalogos
                 cargarSelected();
                 switch (formName)
                 {
-                    case "ComprasForm":
-                        //Movimientos.ComprasForm.Instance().cargarDatosCliente(SELECTED);
-                        this.Close();
-                        break;
-                    case "ContratosForm":
-                        //Movimientos.ContratosForm.Instance().cargarDatosCliente(SELECTED);
-                        this.Close();
-                        break;
                     case "VentasForm":
-                        //Movimientos.VentasForm.Instance().cargarDatosCliente(SELECTED);
+                        Transacciones.VentasForm.Instance().cargarDatosCliente(SELECTED);
                         this.Close();
                         break;
-                    case "REstadoCuentaForm":
-                        //Reportes.REstadoCuentaForm.Instance().cargarDatosCliente(SELECTED);
-                        this.Close();
-                        break;
+                   
                 }
             }
         }

@@ -43,7 +43,7 @@ namespace KAROL.Transacciones
         public ComprasForm()
         {
             InitializeComponent();
-            this.tblITEMS_CALZADO.InitColumnTable();
+            this.tblITEMS_CALZADO.InitColumnTable("COMPRA");
             dbKAROL = new DBKAROL();
             dbProveedor = new DBProveedor();
             dbInventario = new DBInventario();
@@ -168,7 +168,6 @@ namespace KAROL.Transacciones
             COMPRA.COD_SUC = HOME.Instance().SUCURSAL.COD_SUC;
             COMPRA.FECHA = HOME.Instance().FECHA_SISTEMA;
             COMPRA.TIPO = eTipoCompra.IMPORTADO;
-            COMPRA.TIPO_PAGO = eTipoPago.EFECTIVO;
             cargarPreingreso();
             cargarDatosProveedor(null);
             cargarDatosCompra();
@@ -199,6 +198,7 @@ namespace KAROL.Transacciones
                 COMPRA.TELEFONO = PROVEEDOR.TEL;
                
             }
+
             txtCodigoPRO.Text = COMPRA.COD_PROVEEDOR;
             cbxPersonaPRO.SelectedItem = COMPRA.PERSONA; 
             txtNombrePRO.Text = COMPRA.PROVEEDOR;
@@ -268,7 +268,7 @@ namespace KAROL.Transacciones
 
         private void calcularTotales()
         {
-            COMPRA.UNIDADES = COMPRA.ITEMS_COMPRA.AsEnumerable().Select(r => Int32.Parse(r.Field<Int64>("UNIDADES").ToString())).Sum();
+            COMPRA.UNIDADES = COMPRA.ITEMS_COMPRA.AsEnumerable().Select(r => Int32.Parse(r.Field<object>("UNIDADES").ToString())).Sum();
             COMPRA.MONTO = COMPRA.ITEMS_COMPRA.AsEnumerable().Select(r => r.Field<decimal>("MONTO")).Sum();
             COMPRA.TOTAL = COMPRA.MONTO + COMPRA.AJUSTE;
 

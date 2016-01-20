@@ -18,8 +18,9 @@ namespace MODELO
         public string COD_PROVEEDOR;
         public DateTime FECHA;
         public eTipoCompra TIPO;
+        public string NUMCOMPRA;
+        public eTipoDoc TIPO_DOC;
         public string DOCUMENTO;
-        public eTipoPago TIPO_PAGO;
         public decimal AJUSTE;
         public decimal TOTAL;
         public eCategoria CATEGORIA;
@@ -80,8 +81,9 @@ namespace MODELO
                 if (dr.Table.Columns.Contains("COD_PROVEEDOR")) { compra.COD_PROVEEDOR = dr.Field<string>("COD_PROVEEDOR"); }
                 if (dr.Table.Columns.Contains("FECHA")) { compra.FECHA = dr.Field<DateTime>("FECHA"); }
                 if (dr.Table.Columns.Contains("TIPO")) { compra.TIPO = (eTipoCompra)dr.Field<int>("TIPO"); }
+                if (dr.Table.Columns.Contains("NUMCOMPRA")) { compra.NUMCOMPRA = dr.Field<string>("NUMCOMPRA"); }
+                if (dr.Table.Columns.Contains("TIPO_DOC")) { compra.TIPO_DOC = (eTipoDoc)Enum.Parse(typeof(eTipoDoc), dr.Field<string>("TIPO_DOC")); }
                 if (dr.Table.Columns.Contains("DOCUMENTO")) { compra.DOCUMENTO = dr.Field<string>("DOCUMENTO"); }
-                if (dr.Table.Columns.Contains("TIPO_PAGO")) { compra.TIPO_PAGO = (eTipoPago)dr.Field<int>("TIPO_PAGO"); }
                 if (dr.Table.Columns.Contains("AJUSTE")) { compra.AJUSTE = dr.Field<decimal>("AJUSTE"); }
                 if (dr.Table.Columns.Contains("TOTAL")) { compra.TOTAL = dr.Field<decimal>("TOTAL"); }
                 if (dr.Table.Columns.Contains("CATEGORIA")) { compra.CATEGORIA = (eCategoria)Enum.Parse(typeof(eCategoria), dr.Field<string>("CATEGORIA")); }
@@ -91,7 +93,7 @@ namespace MODELO
 
                 if (dr.Table.Columns.Contains("RESPONSABLE")) { compra.RESPONSABLE = dr.Field<string>("RESPONSABLE"); }
                 if (dr.Table.Columns.Contains("NATURALEZA")) { compra.PERSONA = (eNaturalezaPersona)Enum.Parse(typeof(eNaturalezaPersona), dr.Field<string>("NATURALEZA")); }
-                if (dr.Table.Columns.Contains("PROVEEDOR")) { compra.RESPONSABLE = dr.Field<string>("PROVEEDOR"); }
+                if (dr.Table.Columns.Contains("PROVEEDOR")) { compra.PROVEEDOR = dr.Field<string>("PROVEEDOR"); }
                 if (dr.Table.Columns.Contains("TEL")) { compra.RESPONSABLE = dr.Field<string>("TEL"); }
                 if (dr.Table.Columns.Contains("UNIDADES")) { compra.UNIDADES = Int32.Parse(dr.Field<Int64>("UNIDADES").ToString()); }
                 if (dr.Table.Columns.Contains("MONTO")) { compra.MONTO = dr.Field<decimal>("MONTO"); }

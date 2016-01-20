@@ -105,14 +105,15 @@ namespace KAROL.Catalogos
                 }
                 else if (rdbDOC.Checked)
                 {
-                    switch((eTipoDoc) cbmTIPODOC.SelectedItem){
-                        case eTipoDoc.DUI:
+                    switch ((eTipoDocIdent)cbmTIPODOC.SelectedItem)
+                    {
+                        case eTipoDocIdent.DUI:
                             FILTRO = dbProveedor.findByDuiLIKE(txtDOC.Text);
                             break;
-                        case eTipoDoc.NIT:
+                        case eTipoDocIdent.NIT:
                             FILTRO = dbProveedor.findByNitLIKE(txtDOC.Text);
                             break;
-                        case eTipoDoc.NRC:
+                        case eTipoDocIdent.NRC:
                             FILTRO = dbProveedor.findByNrcLIKE(txtDOC.Text);
                             break;
                     }

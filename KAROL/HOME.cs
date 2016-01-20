@@ -385,6 +385,19 @@ namespace KAROL
                 compras.WindowState = FormWindowState.Normal;
             }
         }
+
+
+        private void btnMovVentas_Click(object sender, EventArgs e)
+        {
+            Transacciones.VentasForm ventas;
+            ventas = Transacciones.VentasForm.Instance();
+            ventas.MdiParent = this;
+            ventas.Show();
+            if (ventas.WindowState == FormWindowState.Minimized)
+            {
+                ventas.WindowState = FormWindowState.Normal;
+            }
+        }
        
 
        
@@ -422,7 +435,17 @@ namespace KAROL
 
 
         // MENU REPORTES
-        
+        private void menuRptExistencias(object sender, EventArgs e)
+        {
+            Reportes.RptExistenciasForm exis;
+            exis = Reportes.RptExistenciasForm.Instance();
+            exis.MdiParent = this;
+            exis.Show();
+            if (exis.WindowState == FormWindowState.Minimized)
+            {
+                exis.WindowState = FormWindowState.Normal;
+            }
+        }
 
         
         //MENU AYUDA
@@ -660,14 +683,7 @@ namespace KAROL
 
         private void btnPrueba_Click(object sender, EventArgs e)
         {
-            PruebasForm prueba;
-            prueba = new PruebasForm();
-            prueba.MdiParent = this;
-            prueba.Show();
-            if (prueba.WindowState == FormWindowState.Minimized)
-            {
-                prueba.WindowState = FormWindowState.Normal;
-            }
+
         }
 
         

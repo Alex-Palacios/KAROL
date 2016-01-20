@@ -24,7 +24,7 @@ namespace KAROL.Catalogos
             InitializeComponent();
             dbCliente = new DBCliente();
             rdbDOC.Checked = true;
-            cbmTIPODOC.DataSource = Enum.GetValues(new eTipoDoc().GetType());
+            cbmTIPODOC.DataSource = Enum.GetValues(new eTipoDocIdent().GetType());
         }
 
 
@@ -105,14 +105,14 @@ namespace KAROL.Catalogos
                 }
                 else if (rdbDOC.Checked)
                 {
-                    switch((eTipoDoc) cbmTIPODOC.SelectedItem){
-                        case eTipoDoc.DUI:
+                    switch((eTipoDocIdent) cbmTIPODOC.SelectedItem){
+                        case eTipoDocIdent.DUI:
                             FILTRO = dbCliente.findByDuiLIKE(txtDOC.Text);
                             break;
-                        case eTipoDoc.NIT:
+                        case eTipoDocIdent.NIT:
                             FILTRO = dbCliente.findByNitLIKE(txtDOC.Text);
                             break;
-                        case eTipoDoc.NRC:
+                        case eTipoDocIdent.NRC:
                             FILTRO = dbCliente.findByNrcLIKE(txtDOC.Text);
                             break;
                     }

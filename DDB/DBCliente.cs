@@ -282,6 +282,41 @@ namespace DDB
 
 
 
+
+        public DataTable showClientesByVendedor(string vendedor)
+        {
+            MySqlDataReader reader;
+            DataTable datos = new DataTable();
+            try
+            {
+                string sql = "karol.SP_SHOW_CLIENTES;";
+                MySqlCommand cmd = new MySqlCommand(sql, conn.conection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                MySqlParameter emp = cmd.Parameters.Add("emp", MySqlDbType.VarChar, 15);
+                emp.Direction = ParameterDirection.Input;
+
+                emp.Value = vendedor;
+
+                reader = cmd.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    datos.Load(reader);
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("NO SE PUDO CONSULTAR CLIENTES", "ERROR EN CONSULTA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return datos;
+        }
+
+
+
+
+
         public DataRow findByCodigo(string codigo)
         {
             MySqlDataReader reader;

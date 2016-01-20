@@ -31,13 +31,15 @@ namespace MODELO
         public string NEGOCIO;
         public string TEL_NEGOCIO;
         public string DIRECCION_NEGOCIO;
-        public decimal LIMITE_CREDITO;
         public string NOTA;
 
         public string EXTENDIDO;
         public Int64? EDAD;  
         public string DEPTO;
         public string DOMICILIO;
+
+        public decimal LIMITE_CREDITO;
+        public decimal CREDITO_DISPONIBLE;
 
 
         public Cliente()
@@ -71,13 +73,15 @@ namespace MODELO
                 if (dr.Table.Columns.Contains("NEGOCIO")) { cli.NEGOCIO = dr.Field<string>("NEGOCIO"); }
                 if (dr.Table.Columns.Contains("TEL_NEGOCIO")) { cli.TEL_NEGOCIO = dr.Field<string>("TEL_NEGOCIO"); }
                 if (dr.Table.Columns.Contains("DIRECCION_NEGOCIO")) { cli.DIRECCION_NEGOCIO = dr.Field<string>("DIRECCION_NEGOCIO"); }
-                if (dr.Table.Columns.Contains("LIMITE_CREDITO")) { cli.LIMITE_CREDITO = dr.Field<decimal>("LIMITE_CREDITO"); }
                 if (dr.Table.Columns.Contains("NOTA")) { cli.NOTA = dr.Field<string>("NOTA"); }
 
                 if (dr.Table.Columns.Contains("EXTENDIDO")) { cli.EXTENDIDO = dr.Field<string>("EXTENDIDO"); }
                 if (dr.Table.Columns.Contains("EDAD")) { cli.EDAD = dr.Field<Int64?>("EDAD"); }
                 if (dr.Table.Columns.Contains("DEPTO")) { cli.DEPTO = dr.Field<string>("DEPTO"); }
                 if (dr.Table.Columns.Contains("DOMICILIO")) { cli.DOMICILIO = dr.Field<string>("DOMICILIO"); }
+
+                if (dr.Table.Columns.Contains("LIMITE_CREDITO")) { cli.LIMITE_CREDITO = dr.Field<decimal>("LIMITE_CREDITO"); }
+                if (dr.Table.Columns.Contains("CREDITO_DISPONIBLE")) { cli.CREDITO_DISPONIBLE = dr.Field<decimal>("CREDITO_DISPONIBLE"); }
                 
             }
             return cli;
