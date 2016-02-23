@@ -121,20 +121,317 @@
     <value>321, 17</value>
   </metadata>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ribbonPanel2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="ribbonBar1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="btnPagosProveedores.Text" xml:space="preserve">
+    <value>Pagos Proveedores</value>
+  </data>
+  <data name="btnPagosProveedores.Tooltip" xml:space="preserve">
+    <value>Pagos Proveedores</value>
+  </data>
+  <data name="btnPagosClientes.Text" xml:space="preserve">
+    <value>Cobros Clientes</value>
+  </data>
+  <data name="btnPagosClientes.Tooltip" xml:space="preserve">
+    <value>Pagos Clientes</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="ribbonBar1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>471, 0</value>
+  </data>
+  <data name="ribbonBar1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 116</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ribbonBar1.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="ribbonBar1.Text" xml:space="preserve">
+    <value>CAJA CHICA</value>
+  </data>
+  <data name="&gt;&gt;ribbonBar1.Name" xml:space="preserve">
+    <value>ribbonBar1</value>
+  </data>
+  <data name="&gt;&gt;ribbonBar1.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.RibbonBar, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;ribbonBar1.Parent" xml:space="preserve">
+    <value>ribbonPanel2</value>
+  </data>
+  <data name="&gt;&gt;ribbonBar1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grupoCajaChica.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="btnMovEnvios.Text" xml:space="preserve">
+    <value>Envios</value>
+  </data>
+  <data name="btnMovEnvios.Tooltip" xml:space="preserve">
+    <value>Ventas de Articulos</value>
+  </data>
+  <data name="btnDevCompra.Text" xml:space="preserve">
+    <value>Devolucion Proveedor</value>
+  </data>
+  <data name="btnDevCompra.Tooltip" xml:space="preserve">
+    <value>Ventas de Articulos</value>
+  </data>
+  <data name="grupoCajaChica.Location" type="System.Drawing.Point, System.Drawing">
+    <value>246, 0</value>
+  </data>
+  <data name="grupoCajaChica.Size" type="System.Drawing.Size, System.Drawing">
+    <value>225, 116</value>
+  </data>
+  <data name="grupoCajaChica.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="grupoCajaChica.Text" xml:space="preserve">
+    <value>SALIDAS</value>
+  </data>
+  <data name="&gt;&gt;grupoCajaChica.Name" xml:space="preserve">
+    <value>grupoCajaChica</value>
+  </data>
+  <data name="&gt;&gt;grupoCajaChica.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.RibbonBar, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;grupoCajaChica.Parent" xml:space="preserve">
+    <value>ribbonPanel2</value>
+  </data>
+  <data name="&gt;&gt;grupoCajaChica.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="grupoTransComerciales.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="btnMovCompras.Text" xml:space="preserve">
+    <value>Compras</value>
+  </data>
+  <data name="btnMovCompras.Tooltip" xml:space="preserve">
+    <value>Compras de Prendas y Articulos</value>
+  </data>
+  <data name="btnDevVenta.Text" xml:space="preserve">
+    <value>Devolucion Cliente</value>
+  </data>
+  <data name="btnDevVenta.Tooltip" xml:space="preserve">
+    <value>Ventas de Articulos</value>
+  </data>
+  <data name="grupoTransComerciales.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="grupoTransComerciales.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 116</value>
+  </data>
+  <data name="grupoTransComerciales.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="grupoTransComerciales.Text" xml:space="preserve">
+    <value>ENTRADAS</value>
+  </data>
+  <data name="&gt;&gt;grupoTransComerciales.Name" xml:space="preserve">
+    <value>grupoTransComerciales</value>
+  </data>
+  <data name="&gt;&gt;grupoTransComerciales.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.RibbonBar, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;grupoTransComerciales.Parent" xml:space="preserve">
+    <value>ribbonPanel2</value>
+  </data>
+  <data name="&gt;&gt;grupoTransComerciales.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ribbonPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="ribbonPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 56</value>
+  </data>
+  <data name="ribbonPanel2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 0, 3, 3</value>
+  </data>
+  <data name="ribbonPanel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1046, 119</value>
+  </data>
+  <data name="ribbonPanel2.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;ribbonPanel2.Name" xml:space="preserve">
+    <value>ribbonPanel2</value>
+  </data>
+  <data name="&gt;&gt;ribbonPanel2.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.RibbonPanel, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;ribbonPanel2.Parent" xml:space="preserve">
+    <value>MENU_PRINCIPAL</value>
+  </data>
+  <data name="&gt;&gt;ribbonPanel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grupoCatalogos.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="grupoCatalogos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>306, 0</value>
+  </data>
+  <data name="grupoCatalogos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>360, 116</value>
+  </data>
+  <data name="grupoCatalogos.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="grupoCatalogos.Text" xml:space="preserve">
+    <value>Catalogos</value>
+  </data>
+  <data name="&gt;&gt;grupoCatalogos.Name" xml:space="preserve">
+    <value>grupoCatalogos</value>
+  </data>
+  <data name="&gt;&gt;grupoCatalogos.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.RibbonBar, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;grupoCatalogos.Parent" xml:space="preserve">
+    <value>ribbonPanel1</value>
+  </data>
+  <data name="&gt;&gt;grupoCatalogos.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="grupoCarteras.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="grupoCarteras.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="grupoCarteras.Size" type="System.Drawing.Size, System.Drawing">
+    <value>303, 116</value>
+  </data>
+  <data name="grupoCarteras.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="grupoCarteras.Text" xml:space="preserve">
+    <value>Carteras</value>
+  </data>
+  <data name="&gt;&gt;grupoCarteras.Name" xml:space="preserve">
+    <value>grupoCarteras</value>
+  </data>
+  <data name="&gt;&gt;grupoCarteras.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.RibbonBar, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;grupoCarteras.Parent" xml:space="preserve">
+    <value>ribbonPanel1</value>
+  </data>
+  <data name="&gt;&gt;grupoCarteras.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ribbonPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="ribbonPanel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 56</value>
+  </data>
+  <data name="ribbonPanel1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 0, 3, 3</value>
+  </data>
+  <data name="ribbonPanel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1046, 119</value>
+  </data>
+  <data name="ribbonPanel1.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="ribbonPanel1.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;ribbonPanel1.Name" xml:space="preserve">
+    <value>ribbonPanel1</value>
+  </data>
+  <data name="&gt;&gt;ribbonPanel1.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.RibbonPanel, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;ribbonPanel1.Parent" xml:space="preserve">
+    <value>MENU_PRINCIPAL</value>
+  </data>
+  <data name="&gt;&gt;ribbonPanel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="grupoOperacionesInventario.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
+  </data>
+  <data name="btnOperacionesCorteInv.Text" xml:space="preserve">
+    <value>Corte Inicial</value>
+  </data>
+  <data name="btnOperacionesEnviarInv.Text" xml:space="preserve">
+    <value>Enviar</value>
+  </data>
+  <data name="btnOperacionesRecibirInv.Text" xml:space="preserve">
+    <value>Recibir</value>
+  </data>
+  <data name="grupoOperacionesInventario.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="grupoOperacionesInventario.Size" type="System.Drawing.Size, System.Drawing">
+    <value>245, 116</value>
+  </data>
+  <data name="grupoOperacionesInventario.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="grupoOperacionesInventario.Text" xml:space="preserve">
+    <value>INVENTARIO</value>
+  </data>
+  <data name="&gt;&gt;grupoOperacionesInventario.Name" xml:space="preserve">
+    <value>grupoOperacionesInventario</value>
+  </data>
+  <data name="&gt;&gt;grupoOperacionesInventario.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.RibbonBar, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;grupoOperacionesInventario.Parent" xml:space="preserve">
+    <value>ribbonPanel7</value>
+  </data>
+  <data name="&gt;&gt;grupoOperacionesInventario.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="ribbonPanel7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="ribbonPanel7.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 56</value>
+  </data>
+  <data name="ribbonPanel7.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 0, 3, 3</value>
+  </data>
+  <data name="ribbonPanel7.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1046, 119</value>
+  </data>
+  <data name="ribbonPanel7.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="ribbonPanel7.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;ribbonPanel7.Name" xml:space="preserve">
+    <value>ribbonPanel7</value>
+  </data>
+  <data name="&gt;&gt;ribbonPanel7.Type" xml:space="preserve">
+    <value>DevComponents.DotNetBar.RibbonPanel, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
+  </data>
+  <data name="&gt;&gt;ribbonPanel7.Parent" xml:space="preserve">
+    <value>MENU_PRINCIPAL</value>
+  </data>
+  <data name="&gt;&gt;ribbonPanel7.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="grupoReportesGerenciales.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
   </data>
   <data name="btnRptConsolidado.Text" xml:space="preserve">
     <value>Consolidado</value>
   </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="grupoReportesGerenciales.Location" type="System.Drawing.Point, System.Drawing">
     <value>773, 0</value>
   </data>
   <data name="grupoReportesGerenciales.Size" type="System.Drawing.Size, System.Drawing">
     <value>267, 116</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="grupoReportesGerenciales.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
@@ -258,6 +555,9 @@
   <data name="ribbonPanel4.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
+  <data name="ribbonPanel4.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;ribbonPanel4.Name" xml:space="preserve">
     <value>ribbonPanel4</value>
   </data>
@@ -268,157 +568,7 @@
     <value>MENU_PRINCIPAL</value>
   </data>
   <data name="&gt;&gt;ribbonPanel4.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ribbonPanel2.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="ribbonBar1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="btnPagosProveedores.Text" xml:space="preserve">
-    <value>Pagos Proveedores</value>
-  </data>
-  <data name="btnPagosProveedores.Tooltip" xml:space="preserve">
-    <value>Pagos Proveedores</value>
-  </data>
-  <data name="btnPagosClientes.Text" xml:space="preserve">
-    <value>Cobros Clientes</value>
-  </data>
-  <data name="btnPagosClientes.Tooltip" xml:space="preserve">
-    <value>Pagos Clientes</value>
-  </data>
-  <data name="ribbonBar1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>471, 0</value>
-  </data>
-  <data name="ribbonBar1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 116</value>
-  </data>
-  <data name="ribbonBar1.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="ribbonBar1.Text" xml:space="preserve">
-    <value>CAJA CHICA</value>
-  </data>
-  <data name="&gt;&gt;ribbonBar1.Name" xml:space="preserve">
-    <value>ribbonBar1</value>
-  </data>
-  <data name="&gt;&gt;ribbonBar1.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.RibbonBar, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;ribbonBar1.Parent" xml:space="preserve">
-    <value>ribbonPanel2</value>
-  </data>
-  <data name="&gt;&gt;ribbonBar1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="grupoCajaChica.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="btnMovEnvios.Text" xml:space="preserve">
-    <value>Envios</value>
-  </data>
-  <data name="btnMovEnvios.Tooltip" xml:space="preserve">
-    <value>Ventas de Articulos</value>
-  </data>
-  <data name="btnDevCompra.Text" xml:space="preserve">
-    <value>Devolucion Proveedor</value>
-  </data>
-  <data name="btnDevCompra.Tooltip" xml:space="preserve">
-    <value>Ventas de Articulos</value>
-  </data>
-  <data name="grupoCajaChica.Location" type="System.Drawing.Point, System.Drawing">
-    <value>246, 0</value>
-  </data>
-  <data name="grupoCajaChica.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 116</value>
-  </data>
-  <data name="grupoCajaChica.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="grupoCajaChica.Text" xml:space="preserve">
-    <value>SALIDAS</value>
-  </data>
-  <data name="&gt;&gt;grupoCajaChica.Name" xml:space="preserve">
-    <value>grupoCajaChica</value>
-  </data>
-  <data name="&gt;&gt;grupoCajaChica.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.RibbonBar, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;grupoCajaChica.Parent" xml:space="preserve">
-    <value>ribbonPanel2</value>
-  </data>
-  <data name="&gt;&gt;grupoCajaChica.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="grupoTransComerciales.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="btnMovCompras.Text" xml:space="preserve">
-    <value>Compras</value>
-  </data>
-  <data name="btnMovCompras.Tooltip" xml:space="preserve">
-    <value>Compras de Prendas y Articulos</value>
-  </data>
-  <data name="btnDevVenta.Text" xml:space="preserve">
-    <value>Devolucion Cliente</value>
-  </data>
-  <data name="btnDevVenta.Tooltip" xml:space="preserve">
-    <value>Ventas de Articulos</value>
-  </data>
-  <data name="grupoTransComerciales.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
-  </data>
-  <data name="grupoTransComerciales.Size" type="System.Drawing.Size, System.Drawing">
-    <value>243, 116</value>
-  </data>
-  <data name="grupoTransComerciales.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="grupoTransComerciales.Text" xml:space="preserve">
-    <value>ENTRADAS</value>
-  </data>
-  <data name="&gt;&gt;grupoTransComerciales.Name" xml:space="preserve">
-    <value>grupoTransComerciales</value>
-  </data>
-  <data name="&gt;&gt;grupoTransComerciales.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.RibbonBar, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;grupoTransComerciales.Parent" xml:space="preserve">
-    <value>ribbonPanel2</value>
-  </data>
-  <data name="&gt;&gt;grupoTransComerciales.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="ribbonPanel2.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="ribbonPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 56</value>
-  </data>
-  <data name="ribbonPanel2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 0, 3, 3</value>
-  </data>
-  <data name="ribbonPanel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1046, 119</value>
-  </data>
-  <data name="ribbonPanel2.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="ribbonPanel2.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;ribbonPanel2.Name" xml:space="preserve">
-    <value>ribbonPanel2</value>
-  </data>
-  <data name="&gt;&gt;ribbonPanel2.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.RibbonPanel, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;ribbonPanel2.Parent" xml:space="preserve">
-    <value>MENU_PRINCIPAL</value>
-  </data>
-  <data name="&gt;&gt;ribbonPanel2.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="grupoConfigConexion.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Left</value>
@@ -520,156 +670,6 @@
     <value>MENU_PRINCIPAL</value>
   </data>
   <data name="&gt;&gt;ribbonPanel3.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="grupoOperacionesInventario.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="btnOperacionesCorteInv.Text" xml:space="preserve">
-    <value>Corte Inicial</value>
-  </data>
-  <data name="btnOperacionesEnviarInv.Text" xml:space="preserve">
-    <value>Enviar</value>
-  </data>
-  <data name="btnOperacionesRecibirInv.Text" xml:space="preserve">
-    <value>Recibir</value>
-  </data>
-  <data name="grupoOperacionesInventario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
-  </data>
-  <data name="grupoOperacionesInventario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>245, 116</value>
-  </data>
-  <data name="grupoOperacionesInventario.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="grupoOperacionesInventario.Text" xml:space="preserve">
-    <value>INVENTARIO</value>
-  </data>
-  <data name="&gt;&gt;grupoOperacionesInventario.Name" xml:space="preserve">
-    <value>grupoOperacionesInventario</value>
-  </data>
-  <data name="&gt;&gt;grupoOperacionesInventario.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.RibbonBar, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;grupoOperacionesInventario.Parent" xml:space="preserve">
-    <value>ribbonPanel7</value>
-  </data>
-  <data name="&gt;&gt;grupoOperacionesInventario.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="ribbonPanel7.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="ribbonPanel7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 56</value>
-  </data>
-  <data name="ribbonPanel7.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 0, 3, 3</value>
-  </data>
-  <data name="ribbonPanel7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1046, 119</value>
-  </data>
-  <data name="ribbonPanel7.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="ribbonPanel7.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;ribbonPanel7.Name" xml:space="preserve">
-    <value>ribbonPanel7</value>
-  </data>
-  <data name="&gt;&gt;ribbonPanel7.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.RibbonPanel, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;ribbonPanel7.Parent" xml:space="preserve">
-    <value>MENU_PRINCIPAL</value>
-  </data>
-  <data name="&gt;&gt;ribbonPanel7.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="grupoCatalogos.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="grupoCatalogos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>306, 0</value>
-  </data>
-  <data name="grupoCatalogos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>360, 106</value>
-  </data>
-  <data name="grupoCatalogos.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="grupoCatalogos.Text" xml:space="preserve">
-    <value>Catalogos</value>
-  </data>
-  <data name="&gt;&gt;grupoCatalogos.Name" xml:space="preserve">
-    <value>grupoCatalogos</value>
-  </data>
-  <data name="&gt;&gt;grupoCatalogos.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.RibbonBar, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;grupoCatalogos.Parent" xml:space="preserve">
-    <value>ribbonPanel1</value>
-  </data>
-  <data name="&gt;&gt;grupoCatalogos.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="grupoCarteras.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="grupoCarteras.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
-  </data>
-  <data name="grupoCarteras.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 106</value>
-  </data>
-  <data name="grupoCarteras.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="grupoCarteras.Text" xml:space="preserve">
-    <value>Carteras</value>
-  </data>
-  <data name="&gt;&gt;grupoCarteras.Name" xml:space="preserve">
-    <value>grupoCarteras</value>
-  </data>
-  <data name="&gt;&gt;grupoCarteras.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.RibbonBar, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;grupoCarteras.Parent" xml:space="preserve">
-    <value>ribbonPanel1</value>
-  </data>
-  <data name="&gt;&gt;grupoCarteras.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="ribbonPanel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="ribbonPanel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 56</value>
-  </data>
-  <data name="ribbonPanel1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 0, 3, 3</value>
-  </data>
-  <data name="ribbonPanel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1046, 109</value>
-  </data>
-  <data name="ribbonPanel1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="ribbonPanel1.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;ribbonPanel1.Name" xml:space="preserve">
-    <value>ribbonPanel1</value>
-  </data>
-  <data name="&gt;&gt;ribbonPanel1.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.RibbonPanel, DevComponents.DotNetBar2, Version=8.8.0.0, Culture=neutral, PublicKeyToken=e116d99a00eca71b</value>
-  </data>
-  <data name="&gt;&gt;ribbonPanel1.Parent" xml:space="preserve">
-    <value>MENU_PRINCIPAL</value>
-  </data>
-  <data name="&gt;&gt;ribbonPanel1.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="grupoAyudaInfo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">

@@ -180,7 +180,7 @@ namespace KAROL.Configuraciones
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            ComboBox categorias = Controles.ComboInputBox("CATEGORIA: ", "BUSCAR",Enum.GetValues(new eCategoria().GetType()));
+            ComboBox categorias = Controles.InputComboBox("CATEGORIA: ", "BUSCAR", Enum.GetValues(new eCategoria().GetType()));
             if (categorias != null && categorias.SelectedIndex >= 0)
             {
                 CATEGORIA = (eCategoria)categorias.SelectedItem;

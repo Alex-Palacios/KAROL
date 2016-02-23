@@ -129,11 +129,11 @@
             this.MENU_PRINCIPAL.BackgroundStyle.Class = "";
             this.MENU_PRINCIPAL.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.MENU_PRINCIPAL.CaptionVisible = true;
-            this.MENU_PRINCIPAL.Controls.Add(this.ribbonPanel4);
             this.MENU_PRINCIPAL.Controls.Add(this.ribbonPanel2);
-            this.MENU_PRINCIPAL.Controls.Add(this.ribbonPanel3);
-            this.MENU_PRINCIPAL.Controls.Add(this.ribbonPanel7);
             this.MENU_PRINCIPAL.Controls.Add(this.ribbonPanel1);
+            this.MENU_PRINCIPAL.Controls.Add(this.ribbonPanel7);
+            this.MENU_PRINCIPAL.Controls.Add(this.ribbonPanel4);
+            this.MENU_PRINCIPAL.Controls.Add(this.ribbonPanel3);
             this.MENU_PRINCIPAL.Controls.Add(this.ribbonPanel6);
             resources.ApplyResources(this.MENU_PRINCIPAL, "MENU_PRINCIPAL");
             this.MENU_PRINCIPAL.EnableQatPlacement = false;
@@ -999,6 +999,7 @@
             // 
             // moduloMOVIMIENTOS
             // 
+            this.moduloMOVIMIENTOS.Checked = true;
             this.moduloMOVIMIENTOS.Name = "moduloMOVIMIENTOS";
             this.moduloMOVIMIENTOS.Panel = this.ribbonPanel2;
             resources.ApplyResources(this.moduloMOVIMIENTOS, "moduloMOVIMIENTOS");
@@ -1011,7 +1012,6 @@
             // 
             // moduloREPORTES
             // 
-            this.moduloREPORTES.Checked = true;
             this.moduloREPORTES.Name = "moduloREPORTES";
             this.moduloREPORTES.Panel = this.ribbonPanel4;
             resources.ApplyResources(this.moduloREPORTES, "moduloREPORTES");
